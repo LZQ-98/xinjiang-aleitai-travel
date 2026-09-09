@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>新疆·北疆阿勒泰 · 国庆 8 天 7 晚自驾攻略</title>
+<style>
+  :root{
+    --sky:#BFE3F8;
+    --sand:#F1D6A8;
+    --deep:#16445C;
+    --coral:#F47C64;
+    --white:#ffffff;
+    --muted:#667985;
+    --line:rgba(22,68,92,.14);
+    --bg-soft:#f6fbfd;
+    --shadow:0 10px 30px rgba(22,68,92,.12);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family:"PingFang SC","Hiragino Sans GB","Noto Sans CJK SC","Microsoft YaHei",system-ui,sans-serif;
+    color:#1d3140;
+    background:linear-gradient(180deg,var(--sky) 0%,#eaf6fc 340px,var(--white) 340px);
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+  a{color:var(--deep)}
+  a:focus-visible{outline:3px solid var(--coral);outline-offset:2px;border-radius:4px}
+
+  /* ---------- hero ---------- */
+  header.hero{padding:54px 0 30px;text-align:center;color:var(--deep)}
+  .hero .kicker{display:inline-flex;align-items:center;gap:8px;font-size:13px;letter-spacing:.14em;color:var(--deep);background:rgba(255,255,255,.6);border:1px solid var(--line);padding:6px 16px;border-radius:999px;margin-bottom:18px}
+  h1{font-size:clamp(26px,5vw,44px);margin:0 0 6px;font-weight:700;letter-spacing:.02em}
+  .hero h1 span{color:var(--coral)}
+  .hero .sub{font-size:clamp(14px,2.4vw,18px);color:var(--muted);margin:0 auto 26px;max-width:640px}
+  .badges{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+  .badge{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:10px 18px;box-shadow:var(--shadow);min-width:104px}
+  .badge .n{display:block;font-size:22px;font-weight:700;color:var(--deep)}
+  .badge .l{display:block;font-size:12px;color:var(--muted)}
+
+  /* ---------- nav ---------- */
+  nav.toc{background:var(--white);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:14px 18px;margin:14px auto 26px;max-width:940px;overflow-x:auto;white-space:nowrap;text-align:center}
+  nav.toc a{display:inline-block;margin:4px 8px;font-size:13px;color:var(--deep);text-decoration:none;padding:4px 8px;border-radius:6px}
+  nav.toc a:hover{background:var(--sky)}
+
+  /* ---------- sections ---------- */
+  section{background:var(--white);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);margin:20px 0;padding:26px 26px}
+  section h2{font-size:clamp(20px,3.4vw,28px);color:var(--deep);margin:0 0 6px;display:flex;align-items:center;gap:10px;font-weight:700}
+  section h2 .sec-no{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:10px;background:var(--deep);color:#fff;font-size:16px;flex:none}
+  .lead{color:var(--muted);margin:0 0 18px;font-size:14px}
+  h3{color:var(--deep);font-size:17px;margin:22px 0 6px}
+  .grid{display:grid;gap:16px}
+  .g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+  .g3{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+
+  /* action list */
+  .task{display:flex;gap:12px;align-items:flex-start;padding:14px 14px;border:1px solid var(--line);border-radius:14px;margin-bottom:10px;background:var(--bg-soft)}
+  .task .ic{flex:none;width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:17px}
+  .task.pri .ic{background:var(--coral);color:#fff}
+  .task.mid .ic{background:var(--sand);color:var(--deep)}
+  .task h4{margin:0 0 2px;font-size:15px;color:var(--deep)}
+  .task p{margin:0;font-size:13.5px;color:#33475a}
+  .task .deadline{display:inline-block;margin-top:6px;font-size:12px;background:var(--coral);color:#fff;padding:2px 10px;border-radius:999px}
+
+  /* timeline / route */
+  .route{display:flex;flex-direction:column;gap:0;margin:6px 0 10px}
+  .rnode{display:flex;gap:14px;position:relative;padding-bottom:18px}
+  .rnode:last-child{padding-bottom:0}
+  .rnode .dot{flex:none;width:14px;height:14px;border-radius:50%;background:var(--coral);margin-top:5px;position:relative;z-index:2}
+  .rnode .rail{position:absolute;left:6px;top:20px;bottom:0;width:2px;background:var(--sky)}
+  .rnode:last-child .rail{display:none}
+  .rnode .cnt h4{margin:0;font-size:16px;color:var(--deep)}
+  .rnode .cnt .ln{font-size:12.5px;color:var(--muted);margin-top:2px}
+
+  /* day cards */
+  .day{border-top:1px solid var(--line);padding:20px 0}
+  .day:first-of-type{border-top:none;padding-top:4px}
+  .day-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px;margin-bottom:10px}
+  .day-tag{background:var(--deep);color:#fff;font-size:13px;padding:4px 12px;border-radius:999px;flex:none}
+  .day-title{font-size:18px;font-weight:700;color:var(--deep)}
+  .day-meta{font-size:13px;color:var(--muted);width:100%}
+  .chip{display:inline-block;font-size:12px;background:var(--sky);color:var(--deep);padding:3px 12px;border-radius:999px;margin-right:6px;margin-bottom:4px}
+  .day .row{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+  .day .cell{background:var(--bg-soft);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+  .day .cell h3{margin:0 0 6px;font-size:13px;letter-spacing:.04em;color:var(--muted);font-weight:600}
+  .day .cell ul{margin:0;padding-left:18px}
+  .day .cell li{font-size:13.5px;margin-bottom:4px;color:#33475a}
+  .warn{font-size:13px;color:var(--deep);background:#fdf1e0;border:1px solid #eccb93;border-radius:10px;padding:10px 13px;margin-top:10px}
+
+  /* table */
+  table{width:100%;border-collapse:collapse;margin:10px 0 6px;font-size:13.5px}
+  caption{caption-side:top;text-align:left;font-size:13px;color:var(--muted);padding:4px 0 8px}
+  thead th{background:var(--deep);color:#fff;text-align:left;padding:10px 12px;font-weight:600}
+  tbody td{border-bottom:1px solid var(--line);padding:9px 12px;vertical-align:top}
+  tbody tr:nth-child(even){background:var(--bg-soft)}
+  td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .sum td{background:var(--sand);font-weight:700}
+
+  /* food */
+  .food-card{background:var(--sand);border-radius:14px;padding:14px 16px}
+  .food-card h4{margin:0 0 4px;color:var(--deep);font-size:15px}
+  .food-card .price{font-size:12.5px;color:var(--muted)}
+  .food-card p{margin:6px 0 0;font-size:13.5px;color:#33475a}
+
+  /* checklist */
+  .check{list-style:none;padding:0;margin:0}
+  .check li{background:var(--bg-soft);border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin-bottom:8px;font-size:13.5px;position:relative;padding-left:38px}
+  .check li::before{content:"☐";position:absolute;left:13px;top:8px;font-size:17px;color:var(--coral)}
+
+  footer{text-align:center;color:var(--muted);font-size:12.5px;padding:26px 0 40px;line-height:1.9}
+  .note{font-size:12px;color:var(--muted);margin-top:12px}
+
+  @media(max-width:640px){
+    section{padding:18px 16px}
+    .badges{flex-wrap:wrap}
+  }
+  @media print{
+    body{background:#fff}
+    section{box-shadow:none;break-inside:avoid}
+    nav.toc{display:none}
+    a{color:var(--deep)}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="kicker">· 9.30 – 10.7 · 乌鲁木齐起止 · 顺时针阿勒泰环线 ·</span>
+    <h1>新疆<span>·</span>北疆阿勒泰<br>国庆 8 天 7 晚自驾攻略</h1>
+    <p class="sub">禾木晨雾 · 喀纳斯三湾 · 白哈巴边境村 · 乌伦古湖雅丹。一程北疆秋天，配一套随走随查的执行细节。</p>
+    <div class="badges">
+      <div class="badge"><span class="n">8晚</span><span class="l">7晚住宿·1晚机动</span></div>
+      <div class="badge"><span class="n">≤550</span><span class="l">km/日 车程控制</span></div>
+      <div class="badge"><span class="n">3大</span><span class="l">核心景区需预约</span></div>
+      <div class="badge"><span class="n">1证</span><span class="l">白哈巴边防证</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <main>
+  <nav class="toc" aria-label="页内导航">
+    <a href="#do">现在就办</a>
+    <a href="#route">路线总览</a>
+    <a href="#days">每日行程</a>
+    <a href="#docs">证件·边防证</a>
+    <a href="#weather">天气·装备</a>
+    <a href="#driving">自驾·加油</a>
+    <a href="#food">美食清单</a>
+    <a href="#budget">预算测算</a>
+    <a href="#alt">备选微调</a>
+  </nav>
+
+  <!-- 现在就办 -->
+  <section id="do">
+    <h2><span class="sec-no">①</span>现在就办：这 6 件事先落地</h2>
+    <p class="lead">国庆是北疆全年人流顶峰，越早越省心。9 月 9 日看这份攻略，下面几件建议本周内依次办掉。</p>
+
+    <div class="task pri">
+      <div class="ic">🏨</div>
+      <div>
+        <h3>订禾木、喀纳斯景区住宿（最优先）</h3>
+        <p>禾木（10.2）、喀纳斯（10.3–10.4）两处住村内木屋，拍照晨雾、省二次门票的关键。国庆木屋一房难求、价格普遍翻倍，建议现在锁房，并务必确认<b>房内有供暖</b>（夜间约 0°C 或更低）。</p>
+        <span class="deadline">建议本周内订好</span>
+      </div>
+    </div>
+
+    <div class="task pri">
+      <div class="ic">🎫</div>
+      <div>
+        <h3>提前实名预约门票与区间车</h3>
+        <p>禾木、喀纳斯、观鱼台、白哈巴建议提前 1 周在官方公众号/新疆旅游官方预约渠道实名购票。国庆当天现场基本买不到，区间车排队也可能 1 小时起步，早安排早从容。</p>
+        <span class="deadline">出发前 1 周</span>
+      </div>
+    </div>
+
+    <div class="task pri">
+      <div class="ic">🪪</div>
+      <div>
+        <h3>办白哈巴边防证（务必）</h3>
+        <p>去白哈巴中哈边境村必须边防证。户籍地公安<b>免费办</b>最稳妥；也可在布尔津政务大厅现场办，但受排班/政策影响有不确定性，别赌现场。出发前拿身份证办好。</p>
+        <span class="deadline">出发前办好</span>
+      </div>
+    </div>
+
+    <div class="task mid">
+      <div class="ic">🚙</div>
+      <div>
+        <h3>订车：7 天 SUV（建议四驱）</h3>
+        <p>行程含 S21 沙漠公路 + 阿禾盘山路，雨天/低温路面湿滑，建议租<b>SUV（有条件上四驱）</b>。国庆乌市租车紧张且涨价，早订可选好车况。</p>
+      </div>
+    </div>
+
+    <div class="task mid">
+      <div class="ic">✈️</div>
+      <div>
+        <h3>往返机票</h3>
+        <p>深圳 ⇄ 乌鲁木齐往返，国庆价格上浮明显，行程已定就早点锁票，能省不少。</p>
+      </div>
+    </div>
+
+    <div class="task mid">
+      <div class="ic">🧥</div>
+      <div>
+        <h3>按初冬打包装备</h3>
+        <p>9 月底–10 月初喀纳斯白天气温可能在 10°C 上下、夜间 0°C 甚至更低。羽绒服、保暖内衣、帽子手套必带，禾木晨雾几乎一定捱着低温。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 路线总览 -->
+  <section id="route">
+    <h2><span class="sec-no">②</span>路线总览</h2>
+    <p class="lead">顺时针阿勒泰环线：乌鲁木齐 → 阿勒泰 → 禾木 → 喀纳斯 → 布尔津 → 福海 → 乌鲁木齐。每一站里程、车程、当日节奏如下。</p>
+    <div class="grid g2" style="grid-template-columns:1fr">
+      <div class="route">
+        <div class="rnode"><span class="dot"></span><span class="rail"></span><div class="cnt"><h3>乌鲁木齐</h3><span class="ln">起点 / 终点 · D0 落地休整 · D7 返回</span></div></div>
+        <div class="rnode"><span class="dot"></span><span class="rail"></span><div class="cnt"><h3>阿勒泰市</h3><span class="ln">D1 · S21 沙漠公路 510km / 5.5h</span></div></div>
+        <div class="rnode"><span class="dot"></span><span class="rail"></span><div class="cnt"><h3>禾木村</h3><span class="ln">D2 · 阿禾公路 230km / 4h（宿村内）</span></div></div>
+        <div class="rnode"><span class="dot"></span><span class="rail"></span><div class="cnt"><h3>喀纳斯村</h3><span class="ln">D3–D4 · 95km / 2h + 白哈巴（宿村内）</span></div></div>
+        <div class="rnode"><span class="dot"></span><span class="rail"></span><div class="cnt"><h3>布尔津</h3><span class="ln">D5 · 150km / 2.5h · 五彩滩日落</span></div></div>
+        <div class="rnode"><span class="dot"></span><span class="rail"></span><div class="cnt"><h3>福海</h3><span class="ln">D6 · 260km / 3.5h · 乌伦古湖海上魔鬼城</span></div></div>
+        <div class="rnode"><span class="dot"></span><div class="cnt"><h3>乌鲁木齐</h3><span class="ln">D7 · 420km / 4.5h · 机场返程</span></div></div>
+      </div>
+    </div>
+    <div class="warn">总里程约 1675km，日均压在 550km 内；路线本身稳，重点在「旺季执行细节」——门票、住宿、边防证、保暖。</div>
+  </section>
+
+  <!-- 每日行程 -->
+  <section id="days">
+    <h2><span class="sec-no">③</span>每日行程</h2>
+    <p class="lead">每天含当天要点、路线、游玩、住宿与就餐提醒。时间随体力和区间车排队情况弹性微调，尤其 D4 建议留余量。</p>
+
+    <div class="day">
+      <div class="day-head">
+        <span class="day-tag">D0</span>
+        <span class="day-title">9.30 · 落地乌鲁木齐 · 休整</span>
+        <span class="day-meta">里程：无 · 目的：适应时差与高原干燥，储备体力</span>
+      </div>
+      <div class="row">
+        <div class="cell"><h3>游玩</h3><ul><li>新疆博物馆（楼兰干尸，镇馆之宝，记得提前预约）</li><li>红山公园（市区地标，可看乌市全景）</li><li>傍晚逛领馆巷、和田二街（烟火气小吃街）</li></ul></div>
+        <div class="cell"><h3>美食</h3><ul><li>领馆巷手抓饭</li><li>烤包子</li><li>过油肉拌面</li></ul></div>
+        <div class="cell"><h3>住宿</h3><ul><li>乌鲁木齐市区酒店</li></ul><div class="warn">新疆比东部时差约 2 小时，餐饮打烊晚、天黑得晚，行程按「当地作息」走更顺。</div></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="day-head">
+        <span class="day-tag">D1</span>
+        <span class="day-title">10.1 · 乌鲁木齐 → 阿勒泰市</span>
+        <span class="day-meta">510km · 车程约 5.5h（≤550km） · 今天是全程最累一天</span>
+      </div>
+      <div class="row">
+        <div class="cell"><h3>路线</h3><ul><li>走 S21 沙漠公路，避开 G30 高速</li><li>沿途戈壁 + 乌伦古湖外景</li></ul></div>
+        <div class="cell"><h3>游玩</h3><ul><li>中途停靠乌伦古湖（外景，不进景区）</li><li>傍晚抵达阿勒泰，有空可上将军山看日落</li></ul></div>
+        <div class="cell"><h3>住宿</h3><ul><li>阿勒泰市区</li></ul><div class="warn">刚飞机落地次日就跑 510km，午睡别省；S21 沙漠段加油站少，<b>出发前加满油</b>；将军山看日落是加分项，体力不够就跳过。</div></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="day-head">
+        <span class="day-tag">D2</span>
+        <span class="day-title">10.2 · 阿勒泰 → 禾木村</span>
+        <span class="day-meta">230km · 车程约 4h · 全程风景段</span>
+      </div>
+      <div class="row">
+        <div class="cell"><h3>路线</h3><ul><li>网红阿禾公路，沿途托勒海特草原、白桦林、湿地，边走边停拍照</li></ul></div>
+        <div class="cell"><h3>游玩</h3><ul><li>下午进禾木景区：禾木桥、白桦林</li><li>傍晚登哈登观景台看日落</li></ul></div>
+        <div class="cell"><h3>住宿</h3><ul><li>禾木景区内木屋（关键：住里才拍得到晨雾）</li></ul><div class="warn">阿禾公路多盘山弯道，雨天减速慢行；连着两天长途 + 盘山，你车技一般更要开稳、保持车距。</div></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="day-head">
+        <span class="day-tag">D3</span>
+        <span class="day-title">10.3 · 禾木全天 → 喀纳斯</span>
+        <span class="day-meta">95km · 车程约 2h</span>
+      </div>
+      <div class="row">
+        <div class="cell"><h3>游玩</h3><ul><li>清晨哈登观景台拍禾木晨雾（必早起，住村内才有机会）</li><li>上午禾木河、白桦林自由闲逛</li><li>中午出发去喀纳斯，下午进景区逛卧龙湾、月亮湾、神仙湾「三湾」</li></ul></div>
+        <div class="cell"><h3>住宿</h3><ul><li>喀纳斯木屋（新村内）</li></ul><div class="warn">三湾徒步可挑其中一两个精华点拍照即可，别把腿留到 D4。</div></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="day-head">
+        <span class="day-tag">D4</span>
+        <span class="day-title">10.4 · 喀纳斯 + 白哈巴</span>
+        <span class="day-meta">35km · 当日几乎无长途车程 · 今天点最满</span>
+      </div>
+      <div class="row">
+        <div class="cell"><h3>游玩</h3><ul><li>上午观鱼台俯瞰喀纳斯湖（1068 级台阶），喀纳斯湖游船（可选）</li><li>下午坐区间车去白哈巴（西北第一村）：看中哈界碑、原始村落</li><li>傍晚返回喀纳斯新村</li></ul></div>
+        <div class="cell"><h3>住宿</h3><ul><li>继续住喀纳斯村内木屋（不用搬行李，省折返）</li></ul><div class="warn">观鱼台 + 白哈巴一天偏挤。白哈巴建议降为<b>可选项</b>：时间或体力不够，优先保观鱼台和早晨光线。边防证务必提前办（见 ④）。</div></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="day-head">
+        <span class="day-tag">D5</span>
+        <span class="day-title">10.5 · 喀纳斯 → 布尔津</span>
+        <span class="day-meta">150km · 车程约 2.5h · 相对轻松</span>
+      </div>
+      <div class="row">
+        <div class="cell"><h3>游玩</h3><ul><li>上午睡到自然醒，收尾喀纳斯剩余小众点位</li><li>中午出发去布尔津，傍晚抵达</li><li>傍晚打卡五彩滩日落（额尔齐斯河雅丹）</li><li>晚上逛河堤夜市：冷水鱼、烤狗鱼</li></ul></div>
+        <div class="cell"><h3>住宿</h3><ul><li>布尔津县城</li></ul></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="day-head">
+        <span class="day-tag">D6</span>
+        <span class="day-title">10.6 · 布尔津 → 福海</span>
+        <span class="day-meta">260km · 车程约 3.5h</span>
+      </div>
+      <div class="row">
+        <div class="cell"><h3>游玩</h3><ul><li>上午出发，中午抵达福海</li><li>下午游览乌伦古湖「海上魔鬼城」：水上雅丹，人少景美</li></ul></div>
+        <div class="cell"><h3>住宿</h3><ul><li>福海县城</li></ul></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="day-head">
+        <span class="day-tag">D7</span>
+        <span class="day-title">10.7 · 福海 → 乌鲁木齐 · 返程</span>
+        <span class="day-meta">420km · 车程约 4.5h · 全程高速</span>
+      </div>
+      <div class="row">
+        <div class="cell"><h3>游玩</h3><ul><li>上午出发，一路高速</li><li>抵达机场返程</li></ul></div>
+        <div class="cell"><h3>提醒</h3><div class="warn">若当天下午/傍晚航班，建议<b>尽早出发</b>，避开国庆返程高峰拥堵；高速中途有服务区，看时间安排午餐。</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 证件 -->
+  <section id="docs">
+    <h2><span class="sec-no">④</span>证件与边防证</h2>
+    <p class="lead">身份证全程随行；去白哈巴必须边防证，两种办理方式，提前办最稳。</p>
+    <div class="grid g2">
+      <div class="cell" style="background:var(--bg-soft);border:1px solid var(--line);border-radius:12px;padding:14px">
+        <h3 style="margin:0 0 6px;color:var(--deep)">边防证 · 两种方式</h3>
+        <ul style="margin:0;padding-left:18px">
+          <li><b>户籍地办理（推荐）</b>：户籍地公安免费办，出发前拿身份证办好带走</li>
+          <li><b>现场办理（有变数）</b>：布尔津政务大厅现场办，受排班/政策影响，别赌</li>
+        </ul>
+        <div class="warn">白哈巴属中哈边境，证件核验严格，务必提前备好，不要到景区门口再想办法。</div>
+      </div>
+      <div class="cell" style="background:var(--bg-soft);border:1px solid var(--line);border-radius:12px;padding:14px">
+        <h3 style="margin:0 0 6px;color:var(--deep)">必带证件清单</h3>
+        <ul class="check">
+          <li>身份证（机票、住宿、安检、门票全用得上）</li>
+          <li>边防证（白哈巴）</li>
+          <li>驾驶证 + 租车证件（自驾必带）</li>
+          <li>手机充电/移动电源（伊犁之外也建议备导航离线地图）</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 天气装备 -->
+  <section id="weather">
+    <h2><span class="sec-no">⑤</span>天气与装备</h2>
+    <p class="lead">9 月底–10 月初的喀纳斯已是深秋转初冬，按「北疆初冬」打包，宁厚勿薄。</p>
+    <table>
+      <caption>9 月底北疆（阿勒泰/喀纳斯一带）参考气温（"约"，以实时预报为准）</caption>
+      <thead><tr><th scope="col">时段</th><th scope="col">参考气温</th><th scope="col">体感要点</th></tr></thead>
+      <tbody>
+        <tr><td>白天</td><td>约 5–15°C</td><td>早晚温差大，山里更凉</td></tr>
+        <tr><td>夜间</td><td>约 0°C 或更低</td><td>禾木/喀纳斯杉地可能近冰点，可能下雪</td></tr>
+      </tbody>
+    </table>
+    <h3>必带装备</h3>
+    <ul class="check">
+      <li>羽绒服 / 加厚冲锋衣（保暖防水两用）</li>
+      <li>保暖内衣、帽子、手套、围巾</li>
+      <li>防滑徒步鞋（观鱼台 1068 级台阶 + 三湾徒步）</li>
+      <li>保湿品 + 润唇膏（口岸干燥，昼夜大温差）</li>
+      <li>相机/手机保暖与备用电池（低温掉电快）</li>
+    </ul>
+  </section>
+
+  <!-- 自驾 -->
+  <section id="driving">
+    <h2><span class="sec-no">⑥</span>自驾与加油</h2>
+    <div class="grid g3">
+      <div class="food-card"><h3>S21 沙漠公路（D1）</h3><span class="price">510km · 戈壁</span><p>全程铺装路，好开；沙漠段加油站/服务区少，<b>进入前加满油</b>。</p></div>
+      <div class="food-card"><h3>阿禾公路（D2）</h3><span class="price">230km · 盘山</span><p>风景绝美但多盘山弯道，雨天减速、保持车距，新手更要开稳。</p></div>
+      <div class="food-card"><h3>高速返程（D7）</h3><span class="price">420km · 全程高速</span><p>服务区完善；早出发避开返程高峰拥堵。</p></div>
+    </div>
+    <div class="warn" style="margin-top:14px">全程约 1675km，建议租 <b>SUV（条件允许上四驱）</b>、买齐险种、取车时拍好车况照片；新疆高速多为区间测速，别赶。</div>
+  </section>
+
+  <!-- 美食 -->
+  <section id="food">
+    <h2><span class="sec-no">⑦</span>美食清单</h2>
+    <p class="lead">新疆美食碳水与荤香并重，一路都能吃到硬货。</p>
+    <div class="grid g3">
+      <div class="food-card"><h3>手抓饭</h3><span class="price">领馆巷（D0）· 人均约 20–30</span><p>黄萝卜焖羊肉，饭香油润，乌市当晚饭正合适。</p></div>
+      <div class="food-card"><h3>烤包子</h3><span class="price">领馆巷 / 和田二街（D0）· 约 4–6/个</span><p>外酥里烫，羊肉馅料足，配凉茶解腻。</p></div>
+      <div class="food-card"><h3>过油肉拌面</h3><span class="price">市井小店（D0）· 人均约 25</span><p>拉条子劲道，浇头油香，管饱。</p></div>
+      <div class="food-card"><h3>冷水鱼 / 烤狗鱼</h3><span class="price">布尔津河堤夜市（D5）· 人均约 50–80</span><p>额尔齐斯河冷水鱼，夜市氛围足，配卡瓦斯。</p></div>
+      <div class="food-card"><h3>哈萨克奶茶 / 手抓肉</h3><span class="price">禾木 / 喀纳斯沿线（D2–D3）</span><p>牧场风味，天冷来一碗热奶茶很暖。</p></div>
+      <div class="food-card"><h3>大盘鸡</h3><span class="price">阿勒泰 / 布尔津（D1 / D5）· 人均约 30–50</span><p>人多点一份，面皮吸汁最解馋。</p></div>
+    </div>
+  </section>
+
+  <!-- 预算 -->
+  <section id="budget">
+    <h2><span class="sec-no">⑧</span>预算测算</h2>
+    <p class="lead">按两人同行、国庆旺季行情估算（"约"，随实际预订浮动）。禾木/喀纳斯景区住宿是最大变量。</p>
+    <table>
+      <caption>两人全程预算区间（国庆行情，单位：元）</caption>
+      <thead><tr><th scope="col">项目</th><th scope="col">说明</th><th scope="col" class="num">估算区间</th></tr></thead>
+      <tbody>
+        <tr><td>往返机票</td><td>深圳 ⇄ 乌鲁木齐，国庆往返人</td><td class="num">6000 – 8000</td></tr>
+        <tr><td>租车</td><td>7 天 SUV + 全险（600–700/天 量级）</td><td class="num">4200 – 5600</td></tr>
+        <tr><td>油费 + 过路费</td><td>全程约 1675km</td><td class="num">1300 – 1900</td></tr>
+        <tr><td>住宿（7 晚）</td><td>禾木/喀纳斯木屋 3 晚 + 县城酒店 4 晚</td><td class="num">5200 – 8400</td></tr>
+        <tr><td>门票 + 区间车</td><td>禾木/喀纳斯/观鱼台/白哈巴，人均约 400–500</td><td class="num">800 – 1000</td></tr>
+        <tr><td>餐饮</td><td>人均 80–120/天 × 7 天</td><td class="num">1100 – 1700</td></tr>
+        <tr class="sum"><td>合计（两人）</td><td>含机票、车、住、票、吃</td><td class="num">约 1.8 万 – 2.6 万</td></tr>
+      </tbody>
+    </table>
+    <p class="note">区间跨度来自「禾木/喀纳斯木屋是否订到、国庆价格上浮幅度」。住宿务必问清供暖；门票与区间车价格以景区官方实时为准。</p>
+  </section>
+
+  <!-- 备选微调 -->
+  <section id="alt">
+    <h2><span class="sec-no">⑨</span>备选微调</h2>
+    <p class="lead">想在福海之外换个赶法，可把后段替换为可可托海方向——路更野、矿城故事多，但里程被拉长。</p>
+    <div class="grid g2">
+      <div class="cell" style="background:var(--bg-soft);border:1px solid var(--line);border-radius:12px;padding:14px">
+        <h3 style="margin:0 0 6px;color:var(--deep)">原方案 · 福海线</h3>
+        <ul style="margin:0;padding-left:18px"><li>D6 布尔津 → 福海（260km）· 乌伦古湖海上魔鬼城</li><li>D7 福海 → 乌鲁木齐（420km）· 返程</li></ul>
+        <p style="font-size:13px;color:var(--muted)">里程更省、更休闲，适合不想赶路。</p>
+      </div>
+      <div class="cell" style="background:var(--bg-soft);border:1px solid var(--line);border-radius:12px;padding:14px">
+        <h3 style="margin:0 0 6px;color:var(--deep)">备选 · 可可托海线</h3>
+        <ul style="margin:0;padding-left:18px"><li>D6 布尔津 → 富蕴·可可托海（约 280km）· 矿山峡谷</li><li>D7 富蕴 → 乌尔禾（约 480km）· 魔鬼城后返程</li></ul>
+        <p style="font-size:13px;color:var(--muted)">可多玩一个矿城景区，但 D7 里程明显拉长，体能和返程时间要留余量。</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    新疆·北疆阿勒泰 · 国庆 8 天 7 晚自驾攻略<br>
+    价格为国庆旺季估算，门票/住宿/气象以景区官方与实时预报为准。<br>
+    祝一路向北，看够北疆的秋天 🍂
+  </footer>
+  </main>
+</div>
+
+<script>
+  document.querySelectorAll('nav.toc a[href^="#"]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      var id = a.getAttribute('href').slice(1);
+      var t = document.getElementById(id);
+      if(t){ e.preventDefault(); t.scrollIntoView({behavior:'smooth', block:'start'}); }
+    });
+  });
+</script>
+</body>
+</html>
