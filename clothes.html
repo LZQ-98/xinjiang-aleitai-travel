@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>北疆10天穿搭购物清单</title>
+<style>
+  :root{
+    --sky:#BFE3F8;
+    --sand:#F1D6A8;
+    --deep:#16445C;
+    --coral:#F47C64;
+    --white:#FFFFFF;
+    --muted:#667985;
+    --bg:#F7FAFC;
+    --card:#FFFFFF;
+    --line:#E3EDF3;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Segoe UI",Roboto,sans-serif;
+    color:var(--deep);
+    background:linear-gradient(180deg,var(--sky) 0%,#EAF5FB 240px,var(--bg) 240px);
+    line-height:1.6;
+    -webkit-text-size-adjust:100%;
+  }
+  a:focus-visible,.copy-btn:focus-visible{
+    outline:3px solid var(--coral);outline-offset:2px;border-radius:6px;
+  }
+  @media (prefers-reduced-motion: reduce){
+    .card{transition:none;}
+    #toast{transition:none;}
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px;}
+
+  /* Header */
+  header{padding:48px 20px 30px;color:#12384d;}
+  .kicker{
+    display:inline-block;background:#ffffffcc;color:var(--deep);
+    padding:5px 14px;border-radius:999px;font-size:13px;letter-spacing:1px;
+    margin-bottom:16px;border:1px solid #ffffff;
+  }
+  h1{font-size:clamp(26px,5vw,40px);margin:0 0 8px;line-height:1.2;letter-spacing:.5px;}
+  .sub{font-size:clamp(14px,2.4vw,17px);opacity:.85;max-width:620px;}
+  .badge-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;}
+  .badge{
+    background:#ffffffcc;border:1px solid #ffffff;border-radius:999px;
+    padding:6px 14px;font-size:13px;color:var(--deep);
+  }
+
+  /* Shared logic strip */
+  .logic{
+    background:var(--white);border:1px solid var(--line);border-radius:16px;
+    padding:20px 22px;margin:10px 0 34px;box-shadow:0 6px 24px rgba(22,68,92,.06);
+  }
+  .logic h2{margin:0 0 14px;font-size:18px;display:flex;align-items:center;gap:8px;}
+  .logic ul{margin:0;padding-left:20px;}
+  .logic li{margin:6px 0;color:var(--deep);font-size:15px;}
+  .logic li b{color:var(--coral);}
+
+  /* Section blocks */
+  .section{margin-bottom:40px;}
+  .section-head{display:flex;align-items:baseline;gap:10px;margin:0 0 16px;}
+  .section-head .num{
+    flex:none;width:34px;height:34px;border-radius:10px;background:var(--deep);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:600;
+  }
+  .section-head h2{margin:0;font-size:22px;}
+  .section-head .tag{font-size:13px;color:var(--muted);}
+
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;}
+  .card{
+    background:var(--card);border:1px solid var(--line);border-radius:16px;
+    padding:20px;box-shadow:0 4px 16px rgba(22,68,92,.05);
+    transition:transform .2s ease, box-shadow .2s ease;
+    display:flex;flex-direction:column;
+  }
+  .card:hover{transform:translateY(-4px);box-shadow:0 10px 26px rgba(22,68,92,.10);}
+  .card .chead{
+    display:flex;align-items:center;justify-content:space-between;gap:8px;
+    margin-bottom:12px;padding-bottom:12px;border-bottom:2px solid var(--sky);
+  }
+  .card .chead h3{margin:0;font-size:17px;line-height:1.3;}
+  .card .scope{font-size:12px;color:var(--muted);white-space:nowrap;}
+  .card .item{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px dashed var(--line);}
+  .card .item:last-child{border-bottom:none;}
+  .item .idx{
+    flex:none;width:22px;height:22px;border-radius:50%;background:var(--sky);color:var(--deep);
+    display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;margin-top:3px;
+  }
+  .item .detail{flex:1;min-width:0;}
+  .item .name{font-weight:600;font-size:14.5px;display:flex;flex-wrap:wrap;align-items:center;gap:6px;}
+  .item .model{
+    display:inline-block;background:#EFF6FA;border:1px solid var(--line);color:var(--deep);
+    font-size:11px;border-radius:6px;padding:2px 8px;
+  }
+  .item .note{font-size:12.5px;color:var(--muted);margin-top:2px;}
+  .copy-btn{
+    align-self:flex-end;margin-top:14px;flex:none;
+    background:var(--coral);color:#fff;border:none;border-radius:8px;
+    padding:8px 16px;font-size:13px;cursor:pointer;transition:opacity .15s, background .15s;
+  }
+  .copy-btn:hover{background:#e86a50;}
+
+  /* Must-carry small items */
+  .must{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;}
+  .must .card h3{font-size:16px;}
+
+  /* Footer note */
+  footer{margin:40px 0 20px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:13px;text-align:center;}
+
+  /* Toast */
+  #toast{
+    position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);
+    background:var(--deep);color:#fff;padding:12px 22px;border-radius:10px;font-size:14px;
+    opacity:0;pointer-events:none;transition:opacity .25s, transform .25s;z-index:99;
+  }
+  #toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+  /* Responsive */
+  @media (max-width:560px){
+    .card .chead{flex-direction:column;align-items:flex-start;}
+    .card .scope{white-space:normal;}
+    .cards{gap:14px;}
+    .wrap{padding:0 14px;}
+  }
+
+  /* Print */
+  @media print{
+    body{background:#fff;}
+    header,.logic,.section{padding:0;margin-bottom:18px;}
+    .card{box-shadow:none;break-inside:avoid;border:1px solid #ccc;}
+    .copy-btn{display:none;}
+    #toast{display:none;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <span class="kicker">新疆 · 北疆 · 10℃ — 28℃</span>
+    <h1>北疆10天穿搭购物清单</h1>
+    <p class="sub">洋葱式叠穿 · 单件可互相混搭 · 4套轮换 · 兼顾拍照与温差 · 行李不超重</p>
+    <div class="badge-row">
+      <span class="badge">📍 福海 → 赛里木湖</span>
+      <span class="badge">☀️ 白天暴晒</span>
+      <span class="badge">🌬 早晚/湖边骤冷</span>
+      <span class="badge">💨 偶尔大风</span>
+    </div>
+  </header>
+
+  <main>
+
+  <section class="logic">
+    <h2>🧅 轮换逻辑（10天怎么穿）</h2>
+    <ul>
+      <li><b>白天热</b> → 短袖 + 长裤</li>
+      <li><b>早晚降温</b> → 短袖 + 抓绒 / 马甲</li>
+      <li><b>大风 / 湖边</b> → 加冲锋衣</li>
+      <li><b>清晨低温</b> → 美利奴打底 + 轻薄羽绒 + 冲锋衣</li>
+    </ul>
+    <p style="margin:10px 0 0;font-size:13px;color:var(--muted);">酒店一般有洗衣服务，2-3天洗一次内层即可；外套不易脏，不频繁洗。同一件冲锋衣 4 套通用，减少行李重量。</p>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <span class="num">1</span>
+      <h2>自驾赶路主力</h2>
+      <span class="tag">日常开车 · 市区吃饭</span>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="chead"><h3>内层 · 优衣库</h3><span class="scope">速干T恤</span></div>
+        <div class="item"><span class="idx">1</span><div class="detail"><div class="name">速干圆领T恤 <span class="model">465488</span></div><div class="note">白色</div></div></div>
+        <button class="copy-btn" data-text="优衣库 465488 速干圆领T恤 白色">复制搜索</button>
+      </div>
+      <div class="card">
+        <div class="chead"><h3>中层 · 优衣库</h3><span class="scope">轻薄摇粒绒外套</span></div>
+        <div class="item"><span class="idx">2</span><div class="detail"><div class="name">轻薄摇粒绒外套 <span class="model">458807</span></div><div class="note">浅灰，早晚降温穿</div></div></div>
+        <button class="copy-btn" data-text="优衣库 458807 轻薄摇粒绒外套 浅灰">复制搜索</button>
+      </div>
+      <div class="card">
+        <div class="chead"><h3>外层 · 迪卡侬 MH500</h3><span class="scope">防水防风</span></div>
+        <div class="item"><span class="idx">3</span><div class="detail"><div class="name">防水防风冲锋衣 <span class="model">8755231</span></div><div class="note">浅灰 · 男款M · 四套通用</div></div></div>
+        <button class="copy-btn" data-text="迪卡侬 MH500 冲锋衣 8755231 浅灰 男款M">复制搜索</button>
+      </div>
+      <div class="card">
+        <div class="chead"><h3>下装 · 迪卡侬 MH500</h3><span class="scope">弹力徒步长裤</span></div>
+        <div class="item"><span class="idx">4</span><div class="detail"><div class="name">弹力徒步长裤 <span class="model">8504754</span></div><div class="note">深灰</div></div></div>
+        <button class="copy-btn" data-text="迪卡侬 MH500 弹力徒步长裤 8504754 深灰">复制搜索</button>
+      </div>
+      <div class="card">
+        <div class="chead"><h3>鞋子 · 凯乐石</h3><span class="scope">飞翼2.0</span></div>
+        <div class="item"><span class="idx">5</span><div class="detail"><div class="name">飞翼2.0 低帮徒步鞋</div><div class="note">徒步、赶路主打</div></div></div>
+        <button class="copy-btn" data-text="凯乐石 飞翼2.0 低帮徒步鞋">复制搜索</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <span class="num">2</span>
+      <h2>赛里木湖拍照出片</h2>
+      <span class="tag">湖边大风 · 颜值优先</span>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="chead"><h3>内层 · 北面 TNF</h3><span class="scope">速干短袖</span></div>
+        <div class="item"><span class="idx">6</span><div class="detail"><div class="name">速干短袖T恤 <span class="model">NF0A812U</span></div><div class="note">炭灰</div></div></div>
+        <button class="copy-btn" data-text="北面 速干短袖T恤 NF0A812U 炭灰">复制搜索</button>
+      </div>
+      <div class="card">
+        <div class="chead"><h3>中层 · Patagonia</h3><span class="scope">Retro Pile</span></div>
+        <div class="item"><span class="idx">7</span><div class="detail"><div class="name">Retro Pile 抓绒马甲</div><div class="note">燕麦色 · 拍照上镜，湖边脱外套只穿马甲</div></div></div>
+        <button class="copy-btn" data-text="Patagonia Retro Pile 抓绒马甲 燕麦色">复制搜索</button>
+      </div>
+      <div class="card">
+        <div class="chead"><h3>外层 · 伯希和 003</h3><span class="scope">冲锋衣</span></div>
+        <div class="item"><span class="idx">8</span><div class="detail"><div class="name">003 冲锋衣</div><div class="note">哑光黑 · 风大直接套上</div></div></div>
+        <button class="copy-btn" data-text="伯希和 003 冲锋衣 哑光黑">复制搜索</button>
+      </div>
+      <div class="card">
+        <div class="chead"><h3>下装 · Lululemon</h3><span class="scope">ABC 休闲裤</span></div>
+        <div class="item"><span class="idx">9</span><div class="detail"><div class="name">ABC 休闲长裤</div><div class="note">黑色 · 拍照百搭</div></div></div>
+        <button class="copy-btn" data-text="Lululemon ABC 休闲长裤 黑色">复制搜索</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <span class="num">3</span>
+      <h2>轻薄舒适</h2>
+      <span class="tag">休整日 · 奎屯市区闲逛</span>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="chead"><h3>内层 · 蕉内</h3><span class="scope">纯棉短袖</span></div>
+        <div class="item"><span class="idx">10</span><div class="detail"><div class="name">纯棉短袖 <span class="model">301P</span></div><div class="note">深灰 · 出汗不粘身</div></div></div>
+        <button class="copy-btn" data-text="蕉内 301P 纯棉短袖 深灰">复制搜索</button>
+      </div>
+      <div class="card">
+        <div class="chead"><h3>中层 · 优衣库</h3><span class="scope">超薄防风夹克</span></div>
+        <div class="item"><span class="idx">11</span><div class="detail"><div class="name">超薄防风立领夹克 <span class="model">460400</span></div><div class="note">黑色 · 可折叠塞包</div></div></div>
+        <button class="copy-btn" data-text="优衣库 460400 超薄防风立领夹克 黑色 可折叠">复制搜索</button>
+      </div>
+      <div class="card">
+        <div class="chead"><h3>下装 · 始祖鸟</h3><span class="scope">Gamma 速干短裤</span></div>
+        <div class="item"><span class="idx">12</span><div class="detail"><div class="name">Gamma Quick Dry 速干短裤</div><div class="note">白天高温穿，傍晚换长裤</div></div></div>
+        <button class="copy-btn" data-text="始祖鸟 Gamma Quick Dry 速干短裤">复制搜索</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <span class="num">4</span>
+      <h2>低温备用（最冷场景）</h2>
+      <span class="tag">清晨出发 · 草原/湖边看日出</span>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="chead"><h3>内层 · Smartwool 250</h3><span class="scope">美利奴羊毛打底</span></div>
+        <div class="item"><span class="idx">13</span><div class="detail"><div class="name">美利奴羊毛长袖打底（250）</div><div class="note">重点！出汗不凉，北疆保暖神器</div></div></div>
+        <button class="copy-btn" data-text="Smartwool 250 美利奴羊毛长袖打底">复制搜索</button>
+      </div>
+      <div class="card">
+        <div class="chead"><h3>中层 · 波司登</h3><span class="scope">轻薄鹅绒羽绒服</span></div>
+        <div class="item"><span class="idx">14</span><div class="detail"><div class="name">轻薄羽绒服（鹅绒）<span class="model">B30131011</span></div><div class="note">黑色 · 可压缩</div></div></div>
+        <button class="copy-btn" data-text="波司登 轻薄羽绒服 鹅绒 B30131011 黑色 可压缩">复制搜索</button>
+      </div>
+      <div class="card">
+        <div class="chead"><h3>下装 · Smartwool</h3><span class="scope">美利奴羊毛秋裤</span></div>
+        <div class="item"><span class="idx">15</span><div class="detail"><div class="name">美利奴羊毛秋裤</div><div class="note">最冷早晚穿，白天脱掉</div></div></div>
+        <button class="copy-btn" data-text="Smartwool 美利奴羊毛秋裤">复制搜索</button>
+      </div>
+      <div class="card">
+        <div class="chead"><h3>外层 · 复用</h3><span class="scope">套装1迪卡侬冲锋衣</span></div>
+        <div class="item"><span class="idx">↪</span><div class="detail"><div class="name">复用套装1 迪卡侬MH500冲锋衣</div><div class="note">不重复购买，4套通用</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <span class="num">★</span>
+      <h2>必带小件</h2>
+      <span class="tag">防晒 / 保暖 / 手脚防护</span>
+    </div>
+    <div class="must">
+      <div class="card">
+        <h3>帽子 · 北面 户外空顶帽</h3>
+        <div class="item"><span class="idx">16</span><div class="detail"><div class="name">户外空顶帽</div><div class="note">防晒</div></div></div>
+        <button class="copy-btn" data-text="北面 户外空顶帽 防晒">复制搜索</button>
+      </div>
+      <div class="card">
+        <h3>袜子 · Smartwool 徒步袜</h3>
+        <div class="item"><span class="idx">17</span><div class="detail"><div class="name">徒步袜 3 双</div><div class="note">每天更换</div></div></div>
+        <button class="copy-btn" data-text="Smartwool 徒步袜">复制搜索</button>
+      </div>
+      <div class="card">
+        <h3>手套 · 迪卡侬 薄款防风手套</h3>
+        <div class="item"><span class="idx">18</span><div class="detail"><div class="name">薄款防风手套</div><div class="note">赛里木湖清晨很冷</div></div></div>
+        <button class="copy-btn" data-text="迪卡侬 薄款防风手套">复制搜索</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    北疆10天 · 4套轮换 · 洋葱式叠穿 · 单件可混搭 · 行李不超重
+  </footer>
+
+</main>
+</div>
+
+<div id="toast">已复制，去购物软件粘贴搜索</div>
+
+<script>
+  (function(){
+    var toast=document.getElementById('toast'),timer=null;
+    function show(){
+      toast.classList.add('show');
+      if(timer)clearTimeout(timer);
+      timer=setTimeout(function(){toast.classList.remove('show');},1800);
+    }
+    document.querySelectorAll('.copy-btn').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        var text=btn.getAttribute('data-text');
+        var done=function(){
+          /* fallback */
+          var ta=document.createElement('textarea');
+          ta.value=text;document.body.appendChild(ta);ta.select();
+          try{document.execCommand('copy');}catch(e){}
+          document.body.removeChild(ta);
+          show();
+        };
+        if(navigator.clipboard && navigator.clipboard.writeText){
+          navigator.clipboard.writeText(text).then(show).catch(done);
+        }else{done();}
+      });
+    });
+  })();
+</script>
+</body>
+</html>
