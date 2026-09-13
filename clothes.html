@@ -15,6 +15,8 @@
     --bg:#F7FAFC;
     --card:#FFFFFF;
     --line:#E3EDF3;
+    --green:#4CAF7D;
+    --amber:#E8A33D;
   }
   *{box-sizing:border-box;}
   html,body{margin:0;padding:0;}
@@ -107,9 +109,71 @@
   }
   .copy-btn:hover{background:#e86a50;}
 
-  /* Must-carry small items */
-  .must{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;}
-  .must .card h3{font-size:16px;}
+  /* Schedule table */
+  .schedule-table{
+    width:100%;border-collapse:collapse;background:var(--card);
+    border-radius:16px;overflow:hidden;border:1px solid var(--line);
+    box-shadow:0 4px 16px rgba(22,68,92,.05);
+  }
+  .schedule-table th{
+    background:var(--deep);color:#fff;padding:12px 14px;font-size:13px;text-align:left;
+  }
+  .schedule-table td{
+    padding:11px 14px;font-size:13.5px;border-bottom:1px solid var(--line);vertical-align:top;
+  }
+  .schedule-table tr:last-child td{border-bottom:none;}
+  .schedule-table tr:nth-child(even){background:#F7FAFC;}
+  .day-tag{
+    display:inline-block;background:var(--sky);color:var(--deep);
+    font-size:11px;font-weight:600;border-radius:6px;padding:2px 8px;margin-right:6px;
+  }
+  .scene-tag{
+    display:inline-block;font-size:11px;border-radius:6px;padding:2px 8px;
+  }
+  .scene-drive{background:#FFF3E0;color:#E65100;}
+  .scene-photo{background:#E8F5E9;color:#2E7D32;}
+  .scene-cold{background:#E3F2FD;color:#1565C0;}
+  .scene-rest{background:#F3E5F5;color:#6A1B9A;}
+
+  /* Color guide */
+  .color-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;}
+  .color-card{
+    background:var(--card);border:1px solid var(--line);border-radius:16px;
+    padding:18px;box-shadow:0 4px 16px rgba(22,68,92,.05);
+  }
+  .color-card h3{margin:0 0 10px;font-size:16px;display:flex;align-items:center;gap:8px;}
+  .color-swatch{
+    display:inline-block;width:18px;height:18px;border-radius:4px;margin-right:6px;
+    vertical-align:middle;border:1px solid rgba(0,0,0,.1);
+  }
+  .color-card p{margin:6px 0;font-size:13.5px;color:var(--deep);}
+  .color-card .avoid{color:var(--coral);font-size:12.5px;}
+
+  /* Budget table */
+  .budget-table{
+    width:100%;border-collapse:collapse;background:var(--card);
+    border-radius:16px;overflow:hidden;border:1px solid var(--line);
+    box-shadow:0 4px 16px rgba(22,68,92,.05);
+  }
+  .budget-table th{
+    background:var(--deep);color:#fff;padding:12px 14px;font-size:13px;text-align:left;
+  }
+  .budget-table td{
+    padding:10px 14px;font-size:13.5px;border-bottom:1px solid var(--line);
+  }
+  .budget-table tr:last-child td{border-bottom:none;font-weight:700;background:#EFF6FA;}
+  .priority-must{color:var(--coral);font-weight:600;}
+  .priority-opt{color:var(--muted);}
+
+  /* Tips box */
+  .tips-box{
+    background:var(--white);border:1px solid var(--line);border-radius:16px;
+    padding:20px 22px;box-shadow:0 4px 16px rgba(22,68,92,.05);
+  }
+  .tips-box h2{margin:0 0 12px;font-size:18px;}
+  .tips-box ul{margin:0;padding-left:20px;}
+  .tips-box li{margin:6px 0;font-size:14px;color:var(--deep);}
+  .tips-box li b{color:var(--coral);}
 
   /* Footer note */
   footer{margin:40px 0 20px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:13px;text-align:center;}
@@ -128,6 +192,8 @@
     .card .scope{white-space:normal;}
     .cards{gap:14px;}
     .wrap{padding:0 14px;}
+    .schedule-table,.budget-table{font-size:12px;}
+    .schedule-table th,.schedule-table td,.budget-table th,.budget-table td{padding:8px 10px;}
   }
 
   /* Print */
@@ -178,27 +244,27 @@
     <div class="cards">
       <div class="card">
         <div class="chead"><h3>内层 · 优衣库</h3><span class="scope">速干T恤</span></div>
-        <div class="item"><span class="idx">1</span><div class="detail"><div class="name">速干圆领T恤 <span class="model">465488</span> <span class="size">M</span></div><div class="note">白色 · 贴身打底</div></div></div>
+        <div class="item"><span class="idx">1</span><div class="detail"><div class="name">速干圆领T恤 <span class="model">465488</span> <span class="size">M</span></div><div class="note">白色 · 贴身打底 · 建议买2件轮换</div></div></div>
         <button class="copy-btn" data-text="优衣库 465488 速干圆领T恤 白色 M">复制搜索</button>
       </div>
       <div class="card">
         <div class="chead"><h3>中层 · 优衣库</h3><span class="scope">轻薄摇粒绒外套</span></div>
-        <div class="item"><span class="idx">2</span><div class="detail"><div class="name">轻薄摇粒绒外套 <span class="model">458807</span> <span class="size">M</span></div><div class="note">浅灰，早晚降温穿</div></div></div>
+        <div class="item"><span class="idx">2</span><div class="detail"><div class="name">轻薄摇粒绒外套 <span class="model">458807</span> <span class="size">M</span></div><div class="note">浅灰，早晚降温穿 · 可机洗</div></div></div>
         <button class="copy-btn" data-text="优衣库 458807 轻薄摇粒绒外套 浅灰 M">复制搜索</button>
       </div>
       <div class="card">
         <div class="chead"><h3>外层 · 迪卡侬 MH500</h3><span class="scope">防水防风</span></div>
-        <div class="item"><span class="idx">3</span><div class="detail"><div class="name">防水防风冲锋衣 <span class="model">8755231</span> <span class="size">L</span></div><div class="note">浅灰 · 外层含套穿选L · 四套通用</div></div></div>
+        <div class="item"><span class="idx">3</span><div class="detail"><div class="name">防水防风冲锋衣 <span class="model">8755231</span> <span class="size">L</span></div><div class="note">浅灰 · 外层含套穿选L · 四套通用 · 带腋下拉链透气</div></div></div>
         <button class="copy-btn" data-text="迪卡侬 MH500 冲锋衣 8755231 浅灰 男款L">复制搜索</button>
       </div>
       <div class="card">
         <div class="chead"><h3>下装 · 迪卡侬 MH500</h3><span class="scope">弹力徒步长裤</span></div>
-        <div class="item"><span class="idx">4</span><div class="detail"><div class="name">弹力徒步长裤 <span class="model">8504754</span> <span class="size">腰30-31</span></div><div class="note">深灰 · 高弹款腰围合适就舒服</div></div></div>
+        <div class="item"><span class="idx">4</span><div class="detail"><div class="name">弹力徒步长裤 <span class="model">8504754</span> <span class="size">腰30-31</span></div><div class="note">深灰 · 高弹款腰围合适就舒服 · 建议买2条轮换</div></div></div>
         <button class="copy-btn" data-text="迪卡侬 MH500 弹力徒步长裤 8504754 深灰 腰围30">复制搜索</button>
       </div>
       <div class="card">
         <div class="chead"><h3>鞋子 · 凯乐石</h3><span class="scope">飞翼2.0</span></div>
-        <div class="item"><span class="idx">5</span><div class="detail"><div class="name">飞翼2.0 低帮徒步鞋 <span class="size">按平时鞋码</span></div><div class="note">徒步、赶路主打 · 建议拍大半码</div></div></div>
+        <div class="item"><span class="idx">5</span><div class="detail"><div class="name">飞翼2.0 低帮徒步鞋 <span class="size">按平时鞋码</span></div><div class="note">徒步、赶路主打 · 建议拍大半码 · 提前穿磨合</div></div></div>
         <button class="copy-btn" data-text="凯乐石 飞翼2.0 低帮徒步鞋 按平时鞋码">复制搜索</button>
       </div>
     </div>
@@ -213,22 +279,22 @@
     <div class="cards">
       <div class="card">
         <div class="chead"><h3>内层 · 北面 TNF</h3><span class="scope">速干短袖</span></div>
-        <div class="item"><span class="idx">6</span><div class="detail"><div class="name">速干短袖T恤 <span class="model">NF0A812U</span> <span class="size">M</span></div><div class="note">炭灰 · 贴身</div></div></div>
+        <div class="item"><span class="idx">6</span><div class="detail"><div class="name">速干短袖T恤 <span class="model">NF0A812U</span> <span class="size">M</span></div><div class="note">炭灰 · 贴身 · 耐脏显瘦</div></div></div>
         <button class="copy-btn" data-text="北面 速干短袖T恤 NF0A812U 炭灰 M">复制搜索</button>
       </div>
       <div class="card">
         <div class="chead"><h3>中层 · Patagonia</h3><span class="scope">Retro Pile</span></div>
-        <div class="item"><span class="idx">7</span><div class="detail"><div class="name">Retro Pile 抓绒马甲 <span class="size">M</span></div><div class="note">燕麦色 · 拍照上镜，湖边脱外套只穿马甲</div></div></div>
+        <div class="item"><span class="idx">7</span><div class="detail"><div class="name">Retro Pile 抓绒马甲 <span class="size">M</span></div><div class="note">燕麦色 · 拍照上镜，湖边脱外套只穿马甲 · 替代方案：优衣库摇粒绒马甲</div></div></div>
         <button class="copy-btn" data-text="Patagonia Retro Pile 抓绒马甲 燕麦色 M">复制搜索</button>
       </div>
       <div class="card">
         <div class="chead"><h3>外层 · 伯希和 003</h3><span class="scope">冲锋衣</span></div>
-        <div class="item"><span class="idx">8</span><div class="detail"><div class="name">003 冲锋衣 <span class="size">L</span></div><div class="note">哑光黑 · 外层，风大直接套上</div></div></div>
+        <div class="item"><span class="idx">8</span><div class="detail"><div class="name">003 冲锋衣 <span class="size">L</span></div><div class="note">哑光黑 · 外层，风大直接套上 · 拍照酷感</div></div></div>
         <button class="copy-btn" data-text="伯希和 003 冲锋衣 哑光黑 L">复制搜索</button>
       </div>
       <div class="card">
         <div class="chead"><h3>下装 · Lululemon</h3><span class="scope">ABC 休闲裤</span></div>
-        <div class="item"><span class="idx">9</span><div class="detail"><div class="name">ABC 休闲长裤 <span class="size">腰32</span></div><div class="note">黑色 · 拍照百搭</div></div></div>
+        <div class="item"><span class="idx">9</span><div class="detail"><div class="name">ABC 休闲长裤 <span class="size">腰32</span></div><div class="note">黑色 · 拍照百搭 · 替代方案：优衣库快干休闲裤</div></div></div>
         <button class="copy-btn" data-text="Lululemon ABC 休闲长裤 黑色 腰围32">复制搜索</button>
       </div>
     </div>
@@ -243,17 +309,17 @@
     <div class="cards">
       <div class="card">
         <div class="chead"><h3>内层 · 蕉内</h3><span class="scope">纯棉短袖</span></div>
-        <div class="item"><span class="idx">10</span><div class="detail"><div class="name">纯棉短袖 <span class="model">301P</span> <span class="size">M</span></div><div class="note">深灰 · 出汗不粘身</div></div></div>
+        <div class="item"><span class="idx">10</span><div class="detail"><div class="name">纯棉短袖 <span class="model">301P</span> <span class="size">M</span></div><div class="note">深灰 · 出汗不粘身 · 建议买2件</div></div></div>
         <button class="copy-btn" data-text="蕉内 301P 纯棉短袖 深灰 M">复制搜索</button>
       </div>
       <div class="card">
         <div class="chead"><h3>中层 · 优衣库</h3><span class="scope">超薄防风夹克</span></div>
-        <div class="item"><span class="idx">11</span><div class="detail"><div class="name">超薄防风立领夹克 <span class="model">460400</span> <span class="size">M</span></div><div class="note">黑色 · 可折叠塞包</div></div></div>
+        <div class="item"><span class="idx">11</span><div class="detail"><div class="name">超薄防风立领夹克 <span class="model">460400</span> <span class="size">M</span></div><div class="note">黑色 · 可折叠塞包 · 市区闲逛备用</div></div></div>
         <button class="copy-btn" data-text="优衣库 460400 超薄防风立领夹克 黑色 M 可折叠">复制搜索</button>
       </div>
       <div class="card">
         <div class="chead"><h3>下装 · 始祖鸟</h3><span class="scope">Gamma 速干短裤</span></div>
-        <div class="item"><span class="idx">12</span><div class="detail"><div class="name">Gamma Quick Dry 速干短裤 <span class="size">腰30</span></div><div class="note">白天高温穿，傍晚换长裤</div></div></div>
+        <div class="item"><span class="idx">12</span><div class="detail"><div class="name">Gamma Quick Dry 速干短裤 <span class="size">腰30</span></div><div class="note">白天高温穿，傍晚换长裤 · 替代方案：迪卡侬速干短裤</div></div></div>
         <button class="copy-btn" data-text="始祖鸟 Gamma Quick Dry 速干短裤 腰围30">复制搜索</button>
       </div>
     </div>
@@ -268,17 +334,17 @@
     <div class="cards">
       <div class="card">
         <div class="chead"><h3>内层 · Smartwool 250</h3><span class="scope">美利奴羊毛打底</span></div>
-        <div class="item"><span class="idx">13</span><div class="detail"><div class="name">美利奴羊毛长袖打底（250）<span class="size">M</span></div><div class="note">重点！出汗不凉，北疆保暖神器</div></div></div>
+        <div class="item"><span class="idx">13</span><div class="detail"><div class="name">美利奴羊毛长袖打底（250）<span class="size">M</span></div><div class="note">重点！出汗不凉，北疆保暖神器 · 替代方案：优衣库HEATTECH极暖</div></div></div>
         <button class="copy-btn" data-text="Smartwool 250 美利奴羊毛长袖打底 M">复制搜索</button>
       </div>
       <div class="card">
         <div class="chead"><h3>中层 · 波司登</h3><span class="scope">轻薄鹅绒羽绒服</span></div>
-        <div class="item"><span class="idx">14</span><div class="detail"><div class="name">轻薄羽绒服（鹅绒）<span class="model">B30131011</span> <span class="size">L</span></div><div class="note">黑色 · 可压缩 · 外层含套穿选L</div></div></div>
+        <div class="item"><span class="idx">14</span><div class="detail"><div class="name">轻薄羽绒服（鹅绒）<span class="model">B30131011</span> <span class="size">L</span></div><div class="note">黑色 · 可压缩 · 外层含套穿选L · 充绒量约60g</div></div></div>
         <button class="copy-btn" data-text="波司登 轻薄羽绒服 鹅绒 B30131011 黑色 L 可压缩">复制搜索</button>
       </div>
       <div class="card">
         <div class="chead"><h3>下装 · Smartwool</h3><span class="scope">美利奴羊毛秋裤</span></div>
-        <div class="item"><span class="idx">15</span><div class="detail"><div class="name">美利奴羊毛秋裤 <span class="size">M</span></div><div class="note">最冷早晚穿，白天脱掉</div></div></div>
+        <div class="item"><span class="idx">15</span><div class="detail"><div class="name">美利奴羊毛秋裤 <span class="size">M</span></div><div class="note">最冷早晚穿，白天脱掉 · 替代方案：优衣库HEATTECH秋裤</div></div></div>
         <button class="copy-btn" data-text="Smartwool 美利奴羊毛秋裤 M">复制搜索</button>
       </div>
       <div class="card">
@@ -290,31 +356,246 @@
 
   <section class="section">
     <div class="section-head">
-      <span class="num">★</span>
-      <h2>必带小件</h2>
-      <span class="tag">防晒 / 保暖 / 手脚防护</span>
+      <span class="num">5</span>
+      <h2>配饰与小件</h2>
+      <span class="tag">防晒 / 保暖 / 手脚防护 / 内衣</span>
     </div>
-    <div class="must">
+    <div class="cards">
       <div class="card">
-        <h3>帽子 · 北面 户外空顶帽</h3>
-        <div class="item"><span class="idx">16</span><div class="detail"><div class="name">户外空顶帽 <span class="size">均码可调</span></div><div class="note">防晒</div></div></div>
+        <div class="chead"><h3>墨镜 · 偏光墨镜</h3><span class="scope">必备！</span></div>
+        <div class="item"><span class="idx">16</span><div class="detail"><div class="name">偏光太阳镜 <span class="size">均码</span></div><div class="note">新疆紫外线极强，雪地/湖面反光严重 · 偏光款减少眩光 · 拍照也好看</div></div></div>
+        <button class="copy-btn" data-text="偏光太阳镜 男款 防紫外线">复制搜索</button>
+      </div>
+      <div class="card">
+        <div class="chead"><h3>帽子 · 北面 户外空顶帽</h3><span class="scope">防晒</span></div>
+        <div class="item"><span class="idx">17</span><div class="detail"><div class="name">户外空顶帽 <span class="size">均码可调</span></div><div class="note">防晒 · 跑步/徒步不闷热 · 替代方案：渔夫帽（防晒面积更大）</div></div></div>
         <button class="copy-btn" data-text="北面 户外空顶帽 防晒 均码">复制搜索</button>
       </div>
       <div class="card">
-        <h3>袜子 · Smartwool 徒步袜</h3>
-        <div class="item"><span class="idx">17</span><div class="detail"><div class="name">徒步袜 3 双 <span class="size">均码39-43</span></div><div class="note">每天更换</div></div></div>
-        <button class="copy-btn" data-text="Smartwool 徒步袜 均码 3双">复制搜索</button>
+        <div class="chead"><h3>围巾 · 魔术头巾</h3><span class="scope">防风保暖</span></div>
+        <div class="item"><span class="idx">18</span><div class="detail"><div class="name">魔术头巾/脖套 <span class="size">均码</span></div><div class="note">赛里木湖清晨防风 · 可当围巾/面罩/发带 · 拍照点缀</div></div></div>
+        <button class="copy-btn" data-text="魔术头巾 脖套 户外 防风 保暖">复制搜索</button>
       </div>
       <div class="card">
-        <h3>手套 · 迪卡侬 薄款防风手套</h3>
-        <div class="item"><span class="idx">18</span><div class="detail"><div class="name">薄款防风手套 <span class="size">均码M</span></div><div class="note">赛里木湖清晨很冷</div></div></div>
-        <button class="copy-btn" data-text="迪卡侬 薄款防风手套 均码M">复制搜索</button>
+        <div class="chead"><h3>袜子 · Smartwool 徒步袜</h3><span class="scope">每天更换</span></div>
+        <div class="item"><span class="idx">19</span><div class="detail"><div class="name">徒步袜 5 双 <span class="size">均码39-43</span></div><div class="note">美利奴羊毛款不臭脚 · 每天更换 · 酒店可洗</div></div></div>
+        <button class="copy-btn" data-text="Smartwool 徒步袜 美利奴羊毛 5双">复制搜索</button>
+      </div>
+      <div class="card">
+        <div class="chead"><h3>手套 · 迪卡侬 薄款防风手套</h3><span class="scope">清晨低温</span></div>
+        <div class="item"><span class="idx">20</span><div class="detail"><div class="name">薄款防风手套 <span class="size">均码M</span></div><div class="note">赛里木湖清晨很冷 · 可触屏款方便拍照</div></div></div>
+        <button class="copy-btn" data-text="迪卡侬 薄款防风手套 可触屏 均码M">复制搜索</button>
+      </div>
+      <div class="card">
+        <div class="chead"><h3>内衣 · 速干内裤</h3><span class="scope">5-7条</span></div>
+        <div class="item"><span class="idx">21</span><div class="detail"><div class="name">速干平角内裤 <span class="size">M/L</span></div><div class="note">建议5-7条 · 速干材质酒店洗了一晚就干 · 避免纯棉（难干）</div></div></div>
+        <button class="copy-btn" data-text="速干平角内裤 男款 5条装 透气">复制搜索</button>
+      </div>
+      <div class="card">
+        <div class="chead"><h3>睡衣 · 轻薄长袖套装</h3><span class="scope">酒店睡觉</span></div>
+        <div class="item"><span class="idx">22</span><div class="detail"><div class="name">纯棉/莫代尔长袖睡衣 <span class="size">M</span></div><div class="note">酒店空调可能偏凉 · 长袖长裤更舒适 · 也可当备用内层</div></div></div>
+        <button class="copy-btn" data-text="莫代尔长袖睡衣套装 男款 纯棉 舒适">复制搜索</button>
+      </div>
+      <div class="card">
+        <div class="chead"><h3>背包 · 单日徒步包</h3><span class="scope">20-30L</span></div>
+        <div class="item"><span class="idx">23</span><div class="detail"><div class="name">户外双肩包 25L <span class="size">均码</span></div><div class="note">禾木/喀纳斯徒步单日背水和零食 · 带胸扣/腰扣更稳 · 放水袋/雨伞侧袋</div></div></div>
+        <button class="copy-btn" data-text="户外双肩包 25L 徒步 轻便 防水">复制搜索</button>
       </div>
     </div>
   </section>
 
+  <section class="section">
+    <div class="section-head">
+      <span class="num">6</span>
+      <h2>10天穿搭日程表</h2>
+      <span class="tag">每天穿什么 · 怎么轮换</span>
+    </div>
+    <div style="overflow-x:auto;">
+    <table class="schedule-table">
+      <thead>
+        <tr>
+          <th style="width:90px;">日期</th>
+          <th style="width:130px;">行程</th>
+          <th>白天穿搭</th>
+          <th>早晚/低温穿搭</th>
+          <th style="width:80px;">洗衣</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="day-tag">D1</span>9.30</td>
+          <td><span class="scene-tag scene-drive">乌鲁木齐→阿勒泰</span></td>
+          <td>套装1：速干T恤+摇粒绒+徒步长裤+徒步鞋</td>
+          <td>加冲锋衣</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td><span class="day-tag">D2</span>10.1</td>
+          <td><span class="scene-tag scene-drive">阿勒泰→禾木</span></td>
+          <td>套装1：换干净速干T恤+徒步长裤</td>
+          <td>禾木夜晚冷，加摇粒绒+冲锋衣</td>
+          <td>洗速干T恤</td>
+        </tr>
+        <tr>
+          <td><span class="day-tag">D3</span>10.2</td>
+          <td><span class="scene-tag scene-photo">禾木晨雾→喀纳斯</span></td>
+          <td>套装2：炭灰速干T恤+抓绒马甲+ABC裤</td>
+          <td>清晨看晨雾：美利奴打底+轻薄羽绒+冲锋衣</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td><span class="day-tag">D4</span>10.3</td>
+          <td><span class="scene-tag scene-photo">喀纳斯三湾</span></td>
+          <td>套装2：换伯希和冲锋衣+抓绒马甲（拍照）</td>
+          <td>早晚加摇粒绒</td>
+          <td>洗速干T恤+内裤</td>
+        </tr>
+        <tr>
+          <td><span class="day-tag">D5</span>10.4</td>
+          <td><span class="scene-tag scene-cold">白哈巴边境村</span></td>
+          <td>套装1：速干T恤+摇粒绒+冲锋衣+徒步长裤</td>
+          <td>边境风大，全程冲锋衣+手套+魔术头巾</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td><span class="day-tag">D6</span>10.5</td>
+          <td><span class="scene-tag scene-drive">喀纳斯→布尔津→福海</span></td>
+          <td>套装3：纯棉短袖+超薄防风夹克+短裤（白天热）</td>
+          <td>傍晚换长裤+摇粒绒</td>
+          <td>洗速干T恤+袜子</td>
+        </tr>
+        <tr>
+          <td><span class="day-tag">D7</span>10.6</td>
+          <td><span class="scene-tag scene-rest">福海休整→飞伊宁</span></td>
+          <td>套装3：纯棉短袖+短裤（市区闲逛）</td>
+          <td>机场/飞机上加超薄防风夹克</td>
+          <td>大洗：所有内层</td>
+        </tr>
+        <tr>
+          <td><span class="day-tag">D8</span>10.7</td>
+          <td><span class="scene-tag scene-photo">伊宁→赛里木湖</span></td>
+          <td>套装2：炭灰速干T恤+抓绒马甲+ABC裤（拍照出片）</td>
+          <td>湖边风大：加伯希和冲锋衣+手套+魔术头巾</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td><span class="day-tag">D9</span>10.8</td>
+          <td><span class="scene-tag scene-cold">赛里木湖日出→伊宁</span></td>
+          <td>套装1：速干T恤+摇粒绒+冲锋衣+徒步长裤</td>
+          <td>看日出：美利奴打底+轻薄羽绒+冲锋衣+手套</td>
+          <td>洗速干T恤</td>
+        </tr>
+        <tr>
+          <td><span class="day-tag">D10</span>10.9</td>
+          <td><span class="scene-tag scene-rest">伊宁返程</span></td>
+          <td>套装3：纯棉短袖+长裤（舒适赶路）</td>
+          <td>机场加超薄防风夹克</td>
+          <td>—</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    <p style="margin:12px 0 0;font-size:12.5px;color:var(--muted);">💡 轮换原则：速干T恤共4件（白×2+炭灰×1+深灰×1），每2-3天洗一次；徒步长裤2条轮换；外套不洗，穿全程。</p>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <span class="num">7</span>
+      <h2>拍照配色指南</h2>
+      <span class="tag">不同场景穿什么颜色上镜</span>
+    </div>
+    <div class="color-grid">
+      <div class="color-card">
+        <h3>🏔 赛里木湖（蓝色湖面）</h3>
+        <p><span class="color-swatch" style="background:#F47C64;"></span><b>暖色系</b>：燕麦色、焦糖色、砖红 —— 和蓝色湖面形成冷暖对比，最出片</p>
+        <p><span class="color-swatch" style="background:#FFFFFF;border:1px solid #ccc;"></span><b>白色</b>：干净清新，适合湖边人像</p>
+        <p class="avoid">❌ 避免：蓝色系（和湖面融为一体）、深灰（太沉闷）</p>
+      </div>
+      <div class="color-card">
+        <h3>🍂 禾木/喀纳斯（金黄秋叶）</h3>
+        <p><span class="color-swatch" style="background:#16445C;"></span><b>冷色系</b>：深蓝、墨绿、酒红 —— 和金黄秋叶形成对比，层次感强</p>
+        <p><span class="color-swatch" style="background:#FFFFFF;border:1px solid #ccc;"></span><b>白色/米白</b>：在黄叶背景下很跳脱，适合晨雾场景</p>
+        <p class="avoid">❌ 避免：黄色/卡其（和背景撞色）、橙色（太接近秋叶色）</p>
+      </div>
+      <div class="color-card">
+        <h3>🏘 白哈巴（边境木屋+草原）</h3>
+        <p><span class="color-swatch" style="background:#8B4513;"></span><b>大地色系</b>：棕色、卡其、军绿 —— 和木屋草原融合，氛围感强</p>
+        <p><span class="color-swatch" style="background:#F47C64;"></span><b>亮色点缀</b>：红色围巾/帽子 —— 在偏暗的边境场景中提亮</p>
+        <p class="avoid">❌ 避免：全身黑色（太沉重）、荧光色（违和）</p>
+      </div>
+      <div class="color-card">
+        <h3>🚗 自驾赶路/市区</h3>
+        <p><span class="color-swatch" style="background:#667985;"></span><b>深灰/黑色</b>：耐脏、显瘦、百搭，开车久坐不明显</p>
+        <p><span class="color-swatch" style="background:#BFE3F8;"></span><b>浅灰/白色</b>：清爽干净，适合市区拍照</p>
+        <p class="avoid">💡 赶路优先舒适，不用太在意外观；市区闲逛可以穿得休闲好看一点</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <span class="num">8</span>
+      <h2>购买优先级与预算汇总</h2>
+      <span class="tag">必买 / 可选 · 总预算估算</span>
+    </div>
+    <div style="overflow-x:auto;">
+    <table class="budget-table">
+      <thead>
+        <tr>
+          <th>品类</th>
+          <th>单品</th>
+          <th style="width:80px;">优先级</th>
+          <th style="width:100px;">参考价(元)</th>
+          <th>备注</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>外层</td><td>迪卡侬MH500冲锋衣</td><td class="priority-must">必买</td><td>300-500</td><td>4套通用，最重要</td></tr>
+        <tr><td>外层</td><td>波司登轻薄鹅绒羽绒服</td><td class="priority-must">必买</td><td>400-700</td><td>清晨低温必备</td></tr>
+        <tr><td>中层</td><td>优衣库轻薄摇粒绒</td><td class="priority-must">必买</td><td>100-200</td><td>早晚降温穿</td></tr>
+        <tr><td>内层</td><td>速干T恤 ×4</td><td class="priority-must">必买</td><td>200-400</td><td>主力打底，多件轮换</td></tr>
+        <tr><td>内层</td><td>Smartwool美利奴打底</td><td class="priority-must">必买</td><td>500-800</td><td>最冷场景，替代方案优衣库HEATTECH 100元</td></tr>
+        <tr><td>下装</td><td>迪卡侬徒步长裤 ×2</td><td class="priority-must">必买</td><td>300-500</td><td>主力长裤，2条轮换</td></tr>
+        <tr><td>鞋子</td><td>凯乐石飞翼2.0徒步鞋</td><td class="priority-must">必买</td><td>400-700</td><td>全程主力鞋</td></tr>
+        <tr><td>配饰</td><td>偏光墨镜</td><td class="priority-must">必买</td><td>100-300</td><td>新疆紫外线强，必备</td></tr>
+        <tr><td>配饰</td><td>防晒帽+魔术头巾+手套</td><td class="priority-must">必买</td><td>100-200</td><td>防风防晒保暖</td></tr>
+        <tr><td>内衣</td><td>速干内裤×7+徒步袜×5</td><td class="priority-must">必买</td><td>200-400</td><td>每天更换</td></tr>
+        <tr><td>中层</td><td>Patagonia抓绒马甲</td><td class="priority-opt">可选</td><td>800-1200</td><td>拍照好看，替代方案优衣库摇粒绒马甲100元</td></tr>
+        <tr><td>外层</td><td>伯希和003冲锋衣</td><td class="priority-opt">可选</td><td>500-800</td><td>拍照酷感，可复用迪卡侬冲锋衣</td></tr>
+        <tr><td>下装</td><td>Lululemon ABC裤</td><td class="priority-opt">可选</td><td>800-1000</td><td>拍照百搭，替代方案优衣库快干裤200元</td></tr>
+        <tr><td>内层</td><td>蕉内纯棉短袖×2</td><td class="priority-opt">可选</td><td>150-250</td><td>休整日穿，可复用速干T恤</td></tr>
+        <tr><td>下装</td><td>始祖鸟Gamma短裤</td><td class="priority-opt">可选</td><td>500-800</td><td>白天高温穿，替代方案迪卡侬速干短裤100元</td></tr>
+        <tr><td>配饰</td><td>单日徒步背包25L</td><td class="priority-opt">可选</td><td>200-500</td><td>禾木/喀纳斯徒步用，可用日常背包替代</td></tr>
+        <tr><td>睡衣</td><td>莫代尔长袖睡衣</td><td class="priority-opt">可选</td><td>100-200</td><td>酒店睡觉穿，可带旧T恤替代</td></tr>
+        <tr><td colspan="3"><b>必买合计（经济方案）</b></td><td><b>约2900-4700</b></td><td>美利奴打底用优衣库替代可省400-600</td></tr>
+        <tr><td colspan="3"><b>全部购买（含可选高端款）</b></td><td><b>约6500-10000</b></td><td>可选款多用平替可控制在4000以内</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p style="margin:12px 0 0;font-size:12.5px;color:var(--muted);">💡 省钱建议：可选款全部用平替（优衣库/迪卡侬），总预算可控制在3500-4500元；已有户外装备的可以复用，花费更低。</p>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <span class="num">9</span>
+      <h2>洗涤与保养</h2>
+      <span class="tag">酒店洗衣 · 衣物护理</span>
+    </div>
+    <div class="tips-box">
+      <ul>
+        <li><b>速干T恤/内裤/袜子</b>：可机洗，酒店洗手池手洗也可，挂浴室一晚基本干；速干材质不要烘干（会损伤面料）</li>
+        <li><b>摇粒绒/抓绒</b>：可机洗，冷水/温水，不要用柔顺剂（会降低抓绒保暖性）；低温烘干或自然晾干</li>
+        <li><b>冲锋衣</b>：尽量不洗，脏了用湿毛巾擦拭；必须洗时用专用洗涤剂（如Nikwax），不要用普通洗衣液（会破坏防水涂层）；不要烘干、不要熨烫</li>
+        <li><b>轻薄羽绒服</b>：尽量不洗，穿全程；必须洗时送干洗或用羽绒服专用洗涤剂手洗，不要机洗（会结块）；晾干后轻轻拍打恢复蓬松</li>
+        <li><b>美利奴羊毛</b>：可机洗（羊毛模式），冷水，不要用热水（会缩水）；不要烘干，平铺晾干；羊毛天然抗菌，不用每次穿都洗</li>
+        <li><b>徒步鞋</b>：不要水洗，脏了用刷子干刷；鞋垫取出单独洗；提前穿磨合，避免新鞋直接上长路</li>
+        <li><b>酒店洗衣服务</b>：禾木/喀纳斯村内木屋一般没有洗衣服务，建议带够内层；布尔津/伊宁/乌鲁木齐市区酒店有洗衣房或自助洗衣机</li>
+      </ul>
+    </div>
+  </section>
+
   <footer>
-    北疆10天 · 4套轮换 · 洋葱式叠穿 · 单件可混搭 · 行李不超重
+    北疆10天 · 4套轮换 · 洋葱式叠穿 · 单件可混搭 · 行李不超重 · 总预算约3500-4500元（经济方案）
   </footer>
 
 </main>
@@ -334,7 +615,6 @@
       btn.addEventListener('click',function(){
         var text=btn.getAttribute('data-text');
         var done=function(){
-          /* fallback */
           var ta=document.createElement('textarea');
           ta.value=text;document.body.appendChild(ta);ta.select();
           try{document.execCommand('copy');}catch(e){}
