@@ -416,89 +416,265 @@
       <span class="tag">每天穿什么 · 怎么轮换 · 哪天洗衣</span>
     </div>
     <div style="overflow-x:auto;">
-    <table class="schedule-table">
-      <thead>
-        <tr>
-          <th style="width:90px;">日期</th>
-          <th style="width:130px;">行程</th>
-          <th>白天穿搭</th>
-          <th>早晚/低温穿搭</th>
-          <th style="width:80px;">洗衣</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><span class="day-tag">D1</span>9.30</td>
-          <td><span class="scene-tag scene-drive">乌鲁木齐→阿勒泰</span></td>
-          <td>套装1：深灰速干T恤+黑摇粒绒+深蓝冲锋衣+深灰徒步裤+徒步鞋</td>
-          <td>早晚加摇粒绒</td>
-          <td>—</td>
-        </tr>
-        <tr>
-          <td><span class="day-tag">D2</span>10.1</td>
-          <td><span class="scene-tag scene-drive">阿勒泰→禾木</span></td>
-          <td>套装1：换干净深灰速干T恤+深灰徒步裤</td>
-          <td>禾木夜晚冷，加摇粒绒+冲锋衣</td>
-          <td>洗速干T恤</td>
-        </tr>
-        <tr>
-          <td><span class="day-tag">D3</span>10.2</td>
-          <td><span class="scene-tag scene-photo">禾木晨雾→喀纳斯</span></td>
-          <td>套装2：白速干T恤+燕麦色抓绒马甲+卡其休闲裤+白板鞋（拍照）</td>
-          <td>清晨看晨雾：HEATTECH半高领+轻薄羽绒+深灰冲锋衣+厚袜</td>
-          <td>—</td>
-        </tr>
-        <tr>
-          <td><span class="day-tag">D4</span>10.3</td>
-          <td><span class="scene-tag scene-photo">喀纳斯三湾</span></td>
-          <td>套装2：岩石棕冲锋衣+燕麦色抓绒马甲+卡其休闲裤+白板鞋（拍照）</td>
-          <td>早晚加摇粒绒 · 徒步时换徒步鞋</td>
-          <td>洗白速干T恤+内裤</td>
-        </tr>
-        <tr>
-          <td><span class="day-tag">D5</span>10.4</td>
-          <td><span class="scene-tag scene-cold">白哈巴边境村</span></td>
-          <td>套装1：深灰速干T恤+黑摇粒绒+深蓝冲锋衣+深灰徒步裤+徒步鞋</td>
-          <td>边境风大，全程冲锋衣+手套+魔术头巾+焦糖色围巾点缀</td>
-          <td>—</td>
-        </tr>
-        <tr>
-          <td><span class="day-tag">D6</span>10.5</td>
-          <td><span class="scene-tag scene-drive">喀纳斯→布尔津→福海</span></td>
-          <td>套装3：浅灰纯棉短袖+黑超薄防风夹克+深灰短裤+白板鞋（白天热）</td>
-          <td>傍晚换长裤+摇粒绒</td>
-          <td>洗速干T恤+袜子</td>
-        </tr>
-        <tr>
-          <td><span class="day-tag">D7</span>10.6</td>
-          <td><span class="scene-tag scene-rest">福海休整→飞伊宁</span></td>
-          <td>套装3：浅灰纯棉短袖+深灰短裤+白板鞋（市区闲逛）</td>
-          <td>机场/飞机上加超薄防风夹克</td>
-          <td>大洗：所有内层</td>
-        </tr>
-        <tr>
-          <td><span class="day-tag">D8</span>10.7</td>
-          <td><span class="scene-tag scene-photo">伊宁→赛里木湖</span></td>
-          <td>套装2：白速干T恤+燕麦色抓绒马甲+岩石棕冲锋衣+卡其休闲裤+白板鞋（拍照出片）</td>
-          <td>湖边风大：加冲锋衣+手套+魔术头巾+焦糖色围巾</td>
-          <td>—</td>
-        </tr>
-        <tr>
-          <td><span class="day-tag">D9</span>10.8</td>
-          <td><span class="scene-tag scene-cold">赛里木湖日出→伊宁</span></td>
-          <td>套装1：深灰速干T恤+黑摇粒绒+深蓝冲锋衣+深灰徒步裤+徒步鞋</td>
-          <td>看日出：HEATTECH半高领+轻薄羽绒+冲锋衣+手套+厚袜+暖宝宝</td>
-          <td>洗速干T恤</td>
-        </tr>
-        <tr>
-          <td><span class="day-tag">D10</span>10.9</td>
-          <td><span class="scene-tag scene-rest">伊宁返程</span></td>
-          <td>套装3：浅灰纯棉短袖+卡其休闲裤+白板鞋（舒适赶路）</td>
-          <td>机场加超薄防风夹克</td>
-          <td>—</td>
-        </tr>
-      </tbody>
-    </table>
+    <style>
+.itinerary-cards{display:flex;flex-direction:column;gap:12px;}
+.day-card{background:var(--card-bg);border-radius:14px;padding:16px 18px;border:1px solid var(--border);transition:box-shadow .2s;}
+.day-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.08);}
+.day-header{display:flex;align-items:center;gap:10px;margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid var(--border);flex-wrap:wrap;}
+.day-header .day-tag{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;padding:3px 10px;border-radius:8px;font-size:12px;font-weight:700;letter-spacing:.5px;}
+.day-header .day-date{font-weight:700;font-size:15px;color:var(--text);}
+.day-body{display:flex;flex-direction:column;gap:10px;}
+.day-row{display:flex;align-items:flex-start;gap:10px;font-size:14px;line-height:1.7;}
+.day-row .row-icon{flex-shrink:0;width:24px;height:24px;display:flex;align-items:center;justify-content:center;border-radius:6px;font-size:14px;}
+.day-row .row-label{flex-shrink:0;width:40px;font-weight:700;color:var(--muted);font-size:13px;padding-top:2px;}
+.day-row .row-content{flex:1;color:var(--text);word-break:break-word;}
+.day-day .row-icon{background:#FFF3E0;}
+.day-night .row-icon{background:#E8EAF6;}
+.day-laundry .row-icon{background:#E8F5E9;}
+.day-laundry .row-content{color:var(--muted);font-size:13px;}
+</style>
+<div class="itinerary-cards">
+  <div class="day-card">
+    <div class="day-header">
+      <span class="day-tag">D1</span>
+      <span class="day-date">9.30</span>
+      <span class="scene-tag scene-drive">乌鲁木齐→阿勒泰</span>
+    </div>
+    <div class="day-body">
+      <div class="day-row day-day">
+        <span class="row-icon">☀️</span>
+        <span class="row-label">白天</span>
+        <span class="row-content">套装1：深灰速干T恤+黑摇粒绒+深蓝冲锋衣+深灰徒步裤+徒步鞋</span>
+      </div>
+      <div class="day-row day-night">
+        <span class="row-icon">🌙</span>
+        <span class="row-label">早晚</span>
+        <span class="row-content">早晚加摇粒绒</span>
+      </div>
+      <div class="day-row day-laundry">
+        <span class="row-icon">🧺</span>
+        <span class="row-label">洗衣</span>
+        <span class="row-content">—</span>
+      </div>
+    </div>
+  </div>
+  <div class="day-card">
+    <div class="day-header">
+      <span class="day-tag">D2</span>
+      <span class="day-date">10.1</span>
+      <span class="scene-tag scene-drive">阿勒泰→禾木</span>
+    </div>
+    <div class="day-body">
+      <div class="day-row day-day">
+        <span class="row-icon">☀️</span>
+        <span class="row-label">白天</span>
+        <span class="row-content">套装1：换干净深灰速干T恤+深灰徒步裤</span>
+      </div>
+      <div class="day-row day-night">
+        <span class="row-icon">🌙</span>
+        <span class="row-label">早晚</span>
+        <span class="row-content">禾木夜晚冷，加摇粒绒+冲锋衣</span>
+      </div>
+      <div class="day-row day-laundry">
+        <span class="row-icon">🧺</span>
+        <span class="row-label">洗衣</span>
+        <span class="row-content">洗速干T恤</span>
+      </div>
+    </div>
+  </div>
+  <div class="day-card">
+    <div class="day-header">
+      <span class="day-tag">D3</span>
+      <span class="day-date">10.2</span>
+      <span class="scene-tag scene-photo">禾木晨雾→喀纳斯</span>
+    </div>
+    <div class="day-body">
+      <div class="day-row day-day">
+        <span class="row-icon">☀️</span>
+        <span class="row-label">白天</span>
+        <span class="row-content">套装2：白速干T恤+燕麦色抓绒马甲+卡其休闲裤+白板鞋（拍照）</span>
+      </div>
+      <div class="day-row day-night">
+        <span class="row-icon">🌙</span>
+        <span class="row-label">早晚</span>
+        <span class="row-content">清晨看晨雾：HEATTECH半高领+轻薄羽绒+深蓝冲锋衣+厚袜</span>
+      </div>
+      <div class="day-row day-laundry">
+        <span class="row-icon">🧺</span>
+        <span class="row-label">洗衣</span>
+        <span class="row-content">—</span>
+      </div>
+    </div>
+  </div>
+  <div class="day-card">
+    <div class="day-header">
+      <span class="day-tag">D4</span>
+      <span class="day-date">10.3</span>
+      <span class="scene-tag scene-photo">喀纳斯三湾</span>
+    </div>
+    <div class="day-body">
+      <div class="day-row day-day">
+        <span class="row-icon">☀️</span>
+        <span class="row-label">白天</span>
+        <span class="row-content">套装2：岩石棕冲锋衣+燕麦色抓绒马甲+卡其休闲裤+白板鞋（拍照）</span>
+      </div>
+      <div class="day-row day-night">
+        <span class="row-icon">🌙</span>
+        <span class="row-label">早晚</span>
+        <span class="row-content">早晚加摇粒绒 · 徒步时换徒步鞋</span>
+      </div>
+      <div class="day-row day-laundry">
+        <span class="row-icon">🧺</span>
+        <span class="row-label">洗衣</span>
+        <span class="row-content">洗白速干T恤+内裤</span>
+      </div>
+    </div>
+  </div>
+  <div class="day-card">
+    <div class="day-header">
+      <span class="day-tag">D5</span>
+      <span class="day-date">10.4</span>
+      <span class="scene-tag scene-cold">白哈巴边境村</span>
+    </div>
+    <div class="day-body">
+      <div class="day-row day-day">
+        <span class="row-icon">☀️</span>
+        <span class="row-label">白天</span>
+        <span class="row-content">套装1：深灰速干T恤+黑摇粒绒+深蓝冲锋衣+深灰徒步裤+徒步鞋</span>
+      </div>
+      <div class="day-row day-night">
+        <span class="row-icon">🌙</span>
+        <span class="row-label">早晚</span>
+        <span class="row-content">边境风大，全程冲锋衣+手套+魔术头巾+焦糖色围巾点缀</span>
+      </div>
+      <div class="day-row day-laundry">
+        <span class="row-icon">🧺</span>
+        <span class="row-label">洗衣</span>
+        <span class="row-content">—</span>
+      </div>
+    </div>
+  </div>
+  <div class="day-card">
+    <div class="day-header">
+      <span class="day-tag">D6</span>
+      <span class="day-date">10.5</span>
+      <span class="scene-tag scene-drive">喀纳斯→布尔津→福海</span>
+    </div>
+    <div class="day-body">
+      <div class="day-row day-day">
+        <span class="row-icon">☀️</span>
+        <span class="row-label">白天</span>
+        <span class="row-content">套装3：浅灰纯棉短袖+黑超薄防风夹克+深灰短裤+白板鞋（白天热）</span>
+      </div>
+      <div class="day-row day-night">
+        <span class="row-icon">🌙</span>
+        <span class="row-label">早晚</span>
+        <span class="row-content">傍晚换长裤+摇粒绒</span>
+      </div>
+      <div class="day-row day-laundry">
+        <span class="row-icon">🧺</span>
+        <span class="row-label">洗衣</span>
+        <span class="row-content">洗速干T恤+袜子</span>
+      </div>
+    </div>
+  </div>
+  <div class="day-card">
+    <div class="day-header">
+      <span class="day-tag">D7</span>
+      <span class="day-date">10.6</span>
+      <span class="scene-tag scene-rest">福海休整→飞伊宁</span>
+    </div>
+    <div class="day-body">
+      <div class="day-row day-day">
+        <span class="row-icon">☀️</span>
+        <span class="row-label">白天</span>
+        <span class="row-content">套装3：浅灰纯棉短袖+深灰短裤+白板鞋（市区闲逛）</span>
+      </div>
+      <div class="day-row day-night">
+        <span class="row-icon">🌙</span>
+        <span class="row-label">早晚</span>
+        <span class="row-content">机场/飞机上加超薄防风夹克</span>
+      </div>
+      <div class="day-row day-laundry">
+        <span class="row-icon">🧺</span>
+        <span class="row-label">洗衣</span>
+        <span class="row-content">大洗：所有内层</span>
+      </div>
+    </div>
+  </div>
+  <div class="day-card">
+    <div class="day-header">
+      <span class="day-tag">D8</span>
+      <span class="day-date">10.7</span>
+      <span class="scene-tag scene-photo">伊宁→赛里木湖</span>
+    </div>
+    <div class="day-body">
+      <div class="day-row day-day">
+        <span class="row-icon">☀️</span>
+        <span class="row-label">白天</span>
+        <span class="row-content">套装2：白速干T恤+燕麦色抓绒马甲+岩石棕冲锋衣+卡其休闲裤+白板鞋（拍照出片）</span>
+      </div>
+      <div class="day-row day-night">
+        <span class="row-icon">🌙</span>
+        <span class="row-label">早晚</span>
+        <span class="row-content">湖边风大：加冲锋衣+手套+魔术头巾+焦糖色围巾</span>
+      </div>
+      <div class="day-row day-laundry">
+        <span class="row-icon">🧺</span>
+        <span class="row-label">洗衣</span>
+        <span class="row-content">—</span>
+      </div>
+    </div>
+  </div>
+  <div class="day-card">
+    <div class="day-header">
+      <span class="day-tag">D9</span>
+      <span class="day-date">10.8</span>
+      <span class="scene-tag scene-cold">赛里木湖日出→伊宁</span>
+    </div>
+    <div class="day-body">
+      <div class="day-row day-day">
+        <span class="row-icon">☀️</span>
+        <span class="row-label">白天</span>
+        <span class="row-content">套装1：深灰速干T恤+黑摇粒绒+深蓝冲锋衣+深灰徒步裤+徒步鞋</span>
+      </div>
+      <div class="day-row day-night">
+        <span class="row-icon">🌙</span>
+        <span class="row-label">早晚</span>
+        <span class="row-content">看日出：HEATTECH半高领+轻薄羽绒+冲锋衣+手套+厚袜+暖宝宝</span>
+      </div>
+      <div class="day-row day-laundry">
+        <span class="row-icon">🧺</span>
+        <span class="row-label">洗衣</span>
+        <span class="row-content">洗速干T恤</span>
+      </div>
+    </div>
+  </div>
+  <div class="day-card">
+    <div class="day-header">
+      <span class="day-tag">D10</span>
+      <span class="day-date">10.9</span>
+      <span class="scene-tag scene-rest">伊宁返程</span>
+    </div>
+    <div class="day-body">
+      <div class="day-row day-day">
+        <span class="row-icon">☀️</span>
+        <span class="row-label">白天</span>
+        <span class="row-content">套装3：浅灰纯棉短袖+卡其休闲裤+白板鞋（舒适赶路）</span>
+      </div>
+      <div class="day-row day-night">
+        <span class="row-icon">🌙</span>
+        <span class="row-label">早晚</span>
+        <span class="row-content">机场加超薄防风夹克</span>
+      </div>
+      <div class="day-row day-laundry">
+        <span class="row-icon">🧺</span>
+        <span class="row-label">洗衣</span>
+        <span class="row-content">—</span>
+      </div>
+    </div>
+  </div>
+</div>
     </div>
     <p style="margin:12px 0 0;font-size:12.5px;color:var(--muted);">💡 轮换原则：速干T恤共4件（深灰×2+白色×2），每2-3天洗一次；徒步长裤2条轮换；冲锋衣2件分工（深蓝赶路+岩石棕拍照）；鞋子2双分工（徒步鞋+白板鞋）。</p>
   </section>
@@ -548,43 +724,265 @@
       <span class="tag">必买 / 可选 · 偏瘦体型专属 · 总预算估算</span>
     </div>
     <div style="overflow-x:auto;">
-    <table class="budget-table">
-      <thead>
-        <tr>
-          <th>品类</th>
-          <th>单品</th>
-          <th style="width:80px;">优先级</th>
-          <th style="width:100px;">参考价(元)</th>
-          <th>备注</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>外层</td><td>迪卡侬MH500深蓝冲锋衣</td><td class="priority-must">必买</td><td>300-500</td><td>赶路耐脏，低温复用，和蓝天呼应显气质</td></tr>
-        <tr><td>外层</td><td>伯希和山野经典岩石棕冲锋衣</td><td class="priority-must">必买</td><td>500-800</td><td>拍照成熟显气质，2件冲锋衣分工</td></tr>
-        <tr><td>中层</td><td>优衣库轻薄摇粒绒（黑）</td><td class="priority-must">必买</td><td>100-200</td><td>早晚降温，偏瘦选M</td></tr>
-        <tr><td>中层</td><td>优衣库摇粒绒马甲（燕麦色）</td><td class="priority-must">必买</td><td>100-200</td><td>拍照用，平替Patagonia</td></tr>
-        <tr><td>中层</td><td>优衣库轻薄羽绒（黑）</td><td class="priority-must">必买</td><td>300-500</td><td>清晨低温，可压缩</td></tr>
-        <tr><td>内层</td><td>速干T恤 ×4（深灰×2+白×2）</td><td class="priority-must">必买</td><td>100-200</td><td>迪卡侬基础款，主力打底</td></tr>
-        <tr><td>内层</td><td>优衣库HEATTECH极暖半高领（黑）</td><td class="priority-must">必买</td><td>100-200</td><td>最冷场景，平替Smartwool</td></tr>
-        <tr><td>内层</td><td>纯棉短袖 ×2（浅灰）</td><td class="priority-must">必买</td><td>80-150</td><td>休整日穿，迪卡侬/蕉内基础款</td></tr>
-        <tr><td>下装</td><td>迪卡侬徒步长裤 ×2（深灰）</td><td class="priority-must">必买</td><td>300-500</td><td>主力长裤，2条轮换</td></tr>
-        <tr><td>下装</td><td>优衣库快干休闲裤（卡其）</td><td class="priority-must">必买</td><td>150-300</td><td>拍照百搭，平替Lululemon</td></tr>
-        <tr><td>下装</td><td>迪卡侬速干短裤（深灰）</td><td class="priority-opt">可选</td><td>50-100</td><td>白天高温穿，可不带</td></tr>
-        <tr><td>下装</td><td>优衣库HEATTECH极暖秋裤（黑）</td><td class="priority-must">必买</td><td>100-200</td><td>最冷早晚，平替Smartwool</td></tr>
-        <tr><td>鞋子</td><td>凯乐石飞翼2.0防水徒步鞋</td><td class="priority-must">必买</td><td>400-700</td><td>赶路徒步主力，选GTX防水款，值得投资</td></tr>
-        <tr><td>鞋子</td><td>回力/安踏白板鞋</td><td class="priority-must">必买</td><td>100-200</td><td>拍照市区穿，平替Nike AF1省600</td></tr>
-        <tr><td>配饰</td><td>偏光墨镜</td><td class="priority-must">必买</td><td>50-100</td><td>新疆紫外线强，必备</td></tr>
-        <tr><td>配饰</td><td>渔夫帽（卡其）+魔术头巾（深灰）</td><td class="priority-must">必买</td><td>50-100</td><td>防风防晒</td></tr>
-        <tr><td>配饰</td><td>焦糖色针织围巾</td><td class="priority-must">必买</td><td>50-100</td><td>拍照点睛，偏白肤色显气色</td></tr>
-        <tr><td>配饰</td><td>可触屏防风手套</td><td class="priority-must">必买</td><td>30-80</td><td>清晨低温，方便拍照</td></tr>
-        <tr><td>内衣</td><td>速干内裤×7+徒步袜×5</td><td class="priority-must">必买</td><td>150-300</td><td>每天更换</td></tr>
-        <tr><td>其他</td><td>迪卡侬15L徒步背包</td><td class="priority-must">必买</td><td>80-150</td><td>单日徒步用，平替省100</td></tr>
-        <tr><td>其他</td><td>莫代尔长袖睡衣</td><td class="priority-opt">可选</td><td>80-150</td><td>酒店睡觉，可带旧T恤替代</td></tr>
-        <tr><td>其他</td><td>暖宝宝+保暖鞋垫</td><td class="priority-opt">可选</td><td>20-50</td><td>极寒备用，体积小</td></tr>
-        <tr><td colspan="3"><b>必买合计（4000元方案）</b></td><td><b>约3800-4200</b></td><td>2件冲锋衣+徒步鞋投资，其他平替</td></tr>
-        <tr><td colspan="3"><b>全部购买（含可选）</b></td><td><b>约3900-4400</b></td><td>可选款只增加100-200元，建议全买</td></tr>
-      </tbody>
-    </table>
+    <style>
+.itinerary-cards{display:flex;flex-direction:column;gap:12px;}
+.day-card{background:var(--card-bg);border-radius:14px;padding:16px 18px;border:1px solid var(--border);transition:box-shadow .2s;}
+.day-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.08);}
+.day-header{display:flex;align-items:center;gap:10px;margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid var(--border);flex-wrap:wrap;}
+.day-header .day-tag{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;padding:3px 10px;border-radius:8px;font-size:12px;font-weight:700;letter-spacing:.5px;}
+.day-header .day-date{font-weight:700;font-size:15px;color:var(--text);}
+.day-body{display:flex;flex-direction:column;gap:10px;}
+.day-row{display:flex;align-items:flex-start;gap:10px;font-size:14px;line-height:1.7;}
+.day-row .row-icon{flex-shrink:0;width:24px;height:24px;display:flex;align-items:center;justify-content:center;border-radius:6px;font-size:14px;}
+.day-row .row-label{flex-shrink:0;width:40px;font-weight:700;color:var(--muted);font-size:13px;padding-top:2px;}
+.day-row .row-content{flex:1;color:var(--text);word-break:break-word;}
+.day-day .row-icon{background:#FFF3E0;}
+.day-night .row-icon{background:#E8EAF6;}
+.day-laundry .row-icon{background:#E8F5E9;}
+.day-laundry .row-content{color:var(--muted);font-size:13px;}
+</style>
+<div class="itinerary-cards">
+  <div class="day-card">
+    <div class="day-header">
+      <span class="day-tag">D1</span>
+      <span class="day-date">9.30</span>
+      <span class="scene-tag scene-drive">乌鲁木齐→阿勒泰</span>
+    </div>
+    <div class="day-body">
+      <div class="day-row day-day">
+        <span class="row-icon">☀️</span>
+        <span class="row-label">白天</span>
+        <span class="row-content">套装1：深灰速干T恤+黑摇粒绒+深蓝冲锋衣+深灰徒步裤+徒步鞋</span>
+      </div>
+      <div class="day-row day-night">
+        <span class="row-icon">🌙</span>
+        <span class="row-label">早晚</span>
+        <span class="row-content">早晚加摇粒绒</span>
+      </div>
+      <div class="day-row day-laundry">
+        <span class="row-icon">🧺</span>
+        <span class="row-label">洗衣</span>
+        <span class="row-content">—</span>
+      </div>
+    </div>
+  </div>
+  <div class="day-card">
+    <div class="day-header">
+      <span class="day-tag">D2</span>
+      <span class="day-date">10.1</span>
+      <span class="scene-tag scene-drive">阿勒泰→禾木</span>
+    </div>
+    <div class="day-body">
+      <div class="day-row day-day">
+        <span class="row-icon">☀️</span>
+        <span class="row-label">白天</span>
+        <span class="row-content">套装1：换干净深灰速干T恤+深灰徒步裤</span>
+      </div>
+      <div class="day-row day-night">
+        <span class="row-icon">🌙</span>
+        <span class="row-label">早晚</span>
+        <span class="row-content">禾木夜晚冷，加摇粒绒+冲锋衣</span>
+      </div>
+      <div class="day-row day-laundry">
+        <span class="row-icon">🧺</span>
+        <span class="row-label">洗衣</span>
+        <span class="row-content">洗速干T恤</span>
+      </div>
+    </div>
+  </div>
+  <div class="day-card">
+    <div class="day-header">
+      <span class="day-tag">D3</span>
+      <span class="day-date">10.2</span>
+      <span class="scene-tag scene-photo">禾木晨雾→喀纳斯</span>
+    </div>
+    <div class="day-body">
+      <div class="day-row day-day">
+        <span class="row-icon">☀️</span>
+        <span class="row-label">白天</span>
+        <span class="row-content">套装2：白速干T恤+燕麦色抓绒马甲+卡其休闲裤+白板鞋（拍照）</span>
+      </div>
+      <div class="day-row day-night">
+        <span class="row-icon">🌙</span>
+        <span class="row-label">早晚</span>
+        <span class="row-content">清晨看晨雾：HEATTECH半高领+轻薄羽绒+深蓝冲锋衣+厚袜</span>
+      </div>
+      <div class="day-row day-laundry">
+        <span class="row-icon">🧺</span>
+        <span class="row-label">洗衣</span>
+        <span class="row-content">—</span>
+      </div>
+    </div>
+  </div>
+  <div class="day-card">
+    <div class="day-header">
+      <span class="day-tag">D4</span>
+      <span class="day-date">10.3</span>
+      <span class="scene-tag scene-photo">喀纳斯三湾</span>
+    </div>
+    <div class="day-body">
+      <div class="day-row day-day">
+        <span class="row-icon">☀️</span>
+        <span class="row-label">白天</span>
+        <span class="row-content">套装2：岩石棕冲锋衣+燕麦色抓绒马甲+卡其休闲裤+白板鞋（拍照）</span>
+      </div>
+      <div class="day-row day-night">
+        <span class="row-icon">🌙</span>
+        <span class="row-label">早晚</span>
+        <span class="row-content">早晚加摇粒绒 · 徒步时换徒步鞋</span>
+      </div>
+      <div class="day-row day-laundry">
+        <span class="row-icon">🧺</span>
+        <span class="row-label">洗衣</span>
+        <span class="row-content">洗白速干T恤+内裤</span>
+      </div>
+    </div>
+  </div>
+  <div class="day-card">
+    <div class="day-header">
+      <span class="day-tag">D5</span>
+      <span class="day-date">10.4</span>
+      <span class="scene-tag scene-cold">白哈巴边境村</span>
+    </div>
+    <div class="day-body">
+      <div class="day-row day-day">
+        <span class="row-icon">☀️</span>
+        <span class="row-label">白天</span>
+        <span class="row-content">套装1：深灰速干T恤+黑摇粒绒+深蓝冲锋衣+深灰徒步裤+徒步鞋</span>
+      </div>
+      <div class="day-row day-night">
+        <span class="row-icon">🌙</span>
+        <span class="row-label">早晚</span>
+        <span class="row-content">边境风大，全程冲锋衣+手套+魔术头巾+焦糖色围巾点缀</span>
+      </div>
+      <div class="day-row day-laundry">
+        <span class="row-icon">🧺</span>
+        <span class="row-label">洗衣</span>
+        <span class="row-content">—</span>
+      </div>
+    </div>
+  </div>
+  <div class="day-card">
+    <div class="day-header">
+      <span class="day-tag">D6</span>
+      <span class="day-date">10.5</span>
+      <span class="scene-tag scene-drive">喀纳斯→布尔津→福海</span>
+    </div>
+    <div class="day-body">
+      <div class="day-row day-day">
+        <span class="row-icon">☀️</span>
+        <span class="row-label">白天</span>
+        <span class="row-content">套装3：浅灰纯棉短袖+黑超薄防风夹克+深灰短裤+白板鞋（白天热）</span>
+      </div>
+      <div class="day-row day-night">
+        <span class="row-icon">🌙</span>
+        <span class="row-label">早晚</span>
+        <span class="row-content">傍晚换长裤+摇粒绒</span>
+      </div>
+      <div class="day-row day-laundry">
+        <span class="row-icon">🧺</span>
+        <span class="row-label">洗衣</span>
+        <span class="row-content">洗速干T恤+袜子</span>
+      </div>
+    </div>
+  </div>
+  <div class="day-card">
+    <div class="day-header">
+      <span class="day-tag">D7</span>
+      <span class="day-date">10.6</span>
+      <span class="scene-tag scene-rest">福海休整→飞伊宁</span>
+    </div>
+    <div class="day-body">
+      <div class="day-row day-day">
+        <span class="row-icon">☀️</span>
+        <span class="row-label">白天</span>
+        <span class="row-content">套装3：浅灰纯棉短袖+深灰短裤+白板鞋（市区闲逛）</span>
+      </div>
+      <div class="day-row day-night">
+        <span class="row-icon">🌙</span>
+        <span class="row-label">早晚</span>
+        <span class="row-content">机场/飞机上加超薄防风夹克</span>
+      </div>
+      <div class="day-row day-laundry">
+        <span class="row-icon">🧺</span>
+        <span class="row-label">洗衣</span>
+        <span class="row-content">大洗：所有内层</span>
+      </div>
+    </div>
+  </div>
+  <div class="day-card">
+    <div class="day-header">
+      <span class="day-tag">D8</span>
+      <span class="day-date">10.7</span>
+      <span class="scene-tag scene-photo">伊宁→赛里木湖</span>
+    </div>
+    <div class="day-body">
+      <div class="day-row day-day">
+        <span class="row-icon">☀️</span>
+        <span class="row-label">白天</span>
+        <span class="row-content">套装2：白速干T恤+燕麦色抓绒马甲+岩石棕冲锋衣+卡其休闲裤+白板鞋（拍照出片）</span>
+      </div>
+      <div class="day-row day-night">
+        <span class="row-icon">🌙</span>
+        <span class="row-label">早晚</span>
+        <span class="row-content">湖边风大：加冲锋衣+手套+魔术头巾+焦糖色围巾</span>
+      </div>
+      <div class="day-row day-laundry">
+        <span class="row-icon">🧺</span>
+        <span class="row-label">洗衣</span>
+        <span class="row-content">—</span>
+      </div>
+    </div>
+  </div>
+  <div class="day-card">
+    <div class="day-header">
+      <span class="day-tag">D9</span>
+      <span class="day-date">10.8</span>
+      <span class="scene-tag scene-cold">赛里木湖日出→伊宁</span>
+    </div>
+    <div class="day-body">
+      <div class="day-row day-day">
+        <span class="row-icon">☀️</span>
+        <span class="row-label">白天</span>
+        <span class="row-content">套装1：深灰速干T恤+黑摇粒绒+深蓝冲锋衣+深灰徒步裤+徒步鞋</span>
+      </div>
+      <div class="day-row day-night">
+        <span class="row-icon">🌙</span>
+        <span class="row-label">早晚</span>
+        <span class="row-content">看日出：HEATTECH半高领+轻薄羽绒+冲锋衣+手套+厚袜+暖宝宝</span>
+      </div>
+      <div class="day-row day-laundry">
+        <span class="row-icon">🧺</span>
+        <span class="row-label">洗衣</span>
+        <span class="row-content">洗速干T恤</span>
+      </div>
+    </div>
+  </div>
+  <div class="day-card">
+    <div class="day-header">
+      <span class="day-tag">D10</span>
+      <span class="day-date">10.9</span>
+      <span class="scene-tag scene-rest">伊宁返程</span>
+    </div>
+    <div class="day-body">
+      <div class="day-row day-day">
+        <span class="row-icon">☀️</span>
+        <span class="row-label">白天</span>
+        <span class="row-content">套装3：浅灰纯棉短袖+卡其休闲裤+白板鞋（舒适赶路）</span>
+      </div>
+      <div class="day-row day-night">
+        <span class="row-icon">🌙</span>
+        <span class="row-label">早晚</span>
+        <span class="row-content">机场加超薄防风夹克</span>
+      </div>
+      <div class="day-row day-laundry">
+        <span class="row-icon">🧺</span>
+        <span class="row-label">洗衣</span>
+        <span class="row-content">—</span>
+      </div>
+    </div>
+  </div>
+</div>
     </div>
     <p style="margin:12px 0 0;font-size:12.5px;color:var(--muted);">💡 4000元方案思路：2件冲锋衣（迪卡侬深蓝+伯希和岩石棕）和徒步鞋（凯乐石飞翼2.0防水款）值得投资，其他全部优衣库/迪卡侬平替；白板鞋用回力/安踏平替Nike AF1省600元。</p>
   </section>
